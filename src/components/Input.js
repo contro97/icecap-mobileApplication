@@ -6,7 +6,7 @@ export function Input({ placeholder, ...rest }) {
     <View style={styles.container}>
         <Text style={styles.text}>{placeholder}</Text>
         <View style={styles.textInputView}>
-        <TextInput></TextInput>
+        <TextInput style={styles.textInputText}></TextInput>
         </View>
     </View>
   );
@@ -32,8 +32,7 @@ const styles = StyleSheet.create({
         borderBottomColor: 'white',
         borderBottomWidth: 1, 
     },
-    TextInput: {
-        height: 50,
-        width: 50,
+    textInputText: {
+        color: 'white'
     }
 })
