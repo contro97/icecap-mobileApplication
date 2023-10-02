@@ -3,6 +3,7 @@ import {
   Text,
   View,
   StyleSheet,
+  useWindowDimensions
 } from "react-native";
 import Colors from "../constants/Colors";
 import Input from "../components/Input";
@@ -11,8 +12,9 @@ import {widthPercentageToDP,  heightPercentageToDP } from 'react-native-responsi
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useState } from "react";
 
-export function StartScreen({ navigation }) {
 
+export function StartScreen({ navigation }) {
+  
   // State variable to hold the password
   const [password, setPassword] = useState('');
   
@@ -22,8 +24,12 @@ export function StartScreen({ navigation }) {
   // Function to toggle the password visibility state
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
-};
+  };
   
+  const window = useWindowDimensions();
+  const boxWidth = window.width * 0.9;
+  const boxHeight = window.height * .925;
+
   return (
     <View style={styles.container}>
 
@@ -54,7 +60,7 @@ export function StartScreen({ navigation }) {
         <PrimaryButton>
           <Text>CREATE ACCOUNT</Text>
         </PrimaryButton>
-        </View>
+      </View>
 
       <View style={styles.helpContainer}>
         <Text style={styles.buttonText}>SETUP INSTRUCTIONS</Text>
@@ -65,32 +71,32 @@ export function StartScreen({ navigation }) {
   );
 }
 
+
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    // backgroundColor: 'yellow',
   },
   imgContainer:{
-    height: heightPercentageToDP(25),
-    marginTop: heightPercentageToDP(7.5),
-    backgroundColor: 'red'
-    
+    flex: 1.5,
+    // backgroundColor: 'red',
+    justifyContent: "center",
   },
   loginFieldContainer: {
-    marginTop: heightPercentageToDP(2.5),
-    height: heightPercentageToDP(30),
-    backgroundColor: 'blue',
+    flex: 2,
+    // backgroundColor: 'blue',
+    justifyContent: "center",
   },
   createAccountContainer:{
-    marginTop: heightPercentageToDP(10),
-    backgroundColor: 'green',
+    flex: 1,
+    // backgroundColor: 'green',
   },
   helpContainer: {
-    position: "absolute",
-    bottom: 0,
+    flex: 1,
     alignSelf: "center",
-    // marginBottom: heightPercentageToDP(1),
-    // marginTop: heightPercentageToDP(5),
-    backgroundColor: 'purple',
+    // backgroundColor: 'purple',
+    position: 'absolute',
+    bottom:0
   },
   logo: {
     width: 60,
