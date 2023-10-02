@@ -2,6 +2,8 @@ import { StartScreen } from "./src/screens";
 import { SafeAreaView, View, Text, StyleSheet } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import Colors from "./src/constants/Colors";
+import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-screen';
+import AdjustScreen from "./src/screens/AdjustScreen";
 
 export default function App() {
   return (
@@ -9,7 +11,10 @@ export default function App() {
       colors={[Colors.primary600, Colors.primary800]}
       style={styles.rootScreen}
     >
-      <StartScreen />
+      <SafeAreaView style={styles.rootScreen}>
+        <StartScreen />
+        {/* <AdjustScreen /> */}
+      </SafeAreaView>
     </LinearGradient>
   );
 }
