@@ -1,5 +1,7 @@
 import { TextInput, View, Text, StyleSheet } from "react-native";
 import Colors from "../constants/Colors";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+
 
 export function Input({ placeholder, secureTextBool,...rest }) {
   return (
@@ -9,7 +11,15 @@ export function Input({ placeholder, secureTextBool,...rest }) {
         <TextInput 
         style={styles.textInputText}
         secureTextEntry={secureTextBool}
-        ></TextInput>
+        >
+            <MaterialCommunityIcons
+                    // name={showPassword ? 'eye-off' : 'eye'}
+                    size={24}
+                    color="#white"
+                    style={styles.icon}
+                    // onPress={toggleShowPassword}
+                />
+        </TextInput>
         </View>
     </View>
   );
@@ -18,7 +28,7 @@ export function Input({ placeholder, secureTextBool,...rest }) {
 export default Input;
 
 const styles = StyleSheet.create({ 
-    container:{
+    containerInputBox:{
         justifyContent: 'center',
         margin: 10,
         marginHorizontal: 30

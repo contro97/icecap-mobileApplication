@@ -3,21 +3,23 @@ import {
   Text,
   View,
   StyleSheet,
-  useWindowDimensions
+  useWindowDimensions,
+  TextInput,
 } from "react-native";
 import Colors from "../constants/Colors";
 import Input from "../components/Input";
 import PrimaryButton from "../components/PrimaryButton";
-import {widthPercentageToDP,  heightPercentageToDP } from 'react-native-responsive-screen';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import {
+  widthPercentageToDP,
+  heightPercentageToDP,
+} from "react-native-responsive-screen";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useState } from "react";
 
-
 export function StartScreen({ navigation }) {
-  
   // State variable to hold the password
-  const [password, setPassword] = useState('');
-  
+  const [password, setPassword] = useState("");
+
   // State variable to track password visibility
   const [showPassword, setShowPassword] = useState(false);
 
@@ -25,14 +27,9 @@ export function StartScreen({ navigation }) {
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
-  
-  const window = useWindowDimensions();
-  const boxWidth = window.width * 0.9;
-  const boxHeight = window.height * .925;
 
   return (
     <View style={styles.container}>
-
       <View style={styles.imgContainer}>
         <Image
           source={require("../../assets/IcecapLogoWhite.png")}
@@ -41,19 +38,47 @@ export function StartScreen({ navigation }) {
       </View>
 
       <View style={styles.loginFieldContainer}>
-        <Input placeholder="EMAIL ADDRESS"></Input>
-        <Input 
-        secureTextBool={!showPassword} 
-        placeholder="PASSWORD"
-        onChangeText={setPassword}
-        >
-        </Input>
+        
+        <View style={styles.containerInputBox}>
+          <Text style={styles.text}>EMAIL</Text>
+          <View style={styles.textInputView}>
+            <TextInput
+              style={styles.textInputText}
+              
+            >
+              <MaterialCommunityIcons
+                // name={showPassword ? 'eye-off' : 'eye'}
+                size={24}
+                color="#white"
+                style={styles.icon}
+                // onPress={toggleShowPassword}
+              />
+            </TextInput>
+          </View>
+        </View>
+
+        <View style={styles.containerInputBox}>
+          <Text style={styles.text}>PASSWORD</Text>
+          <View style={styles.textInputView}>
+            <TextInput
+              style={styles.textInputText}
+              secureTextEntry={!showPassword} 
+            />
+            <MaterialCommunityIcons
+                name={showPassword ? 'eye-off' : 'eye'}
+                size={24}
+                color="#aaa"
+                style={styles.icon}
+                onPress={toggleShowPassword}
+              />
+          </View>
+        </View>
+
         <Text style={styles.buttonText}>FORGOT YOUR PASSWORD?</Text>
         <PrimaryButton>
           <Text>LOG IN</Text>
         </PrimaryButton>
       </View>
-
 
       <View style={styles.createAccountContainer}>
         <Text style={styles.infoText}>Let's get setup for success.</Text>
@@ -66,18 +91,16 @@ export function StartScreen({ navigation }) {
         <Text style={styles.buttonText}>SETUP INSTRUCTIONS</Text>
         <Text style={styles.buttonText}>CAN'T LOGIN? EMAIL SUPPORT</Text>
       </View>
-
     </View>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     // backgroundColor: 'yellow',
   },
-  imgContainer:{
+  imgContainer: {
     flex: 1.5,
     // backgroundColor: 'red',
     justifyContent: "center",
@@ -87,7 +110,7 @@ const styles = StyleSheet.create({
     // backgroundColor: 'blue',
     justifyContent: "center",
   },
-  createAccountContainer:{
+  createAccountContainer: {
     flex: 1,
     // backgroundColor: 'green',
   },
@@ -95,15 +118,20 @@ const styles = StyleSheet.create({
     flex: 1,
     alignSelf: "center",
     // backgroundColor: 'purple',
-    position: 'absolute',
-    bottom:0
+    position: "absolute",
+    bottom: 0,
+  },
+  containerInputBox: {
+    justifyContent: "center",
+    margin: 10,
+    marginHorizontal: 30,
   },
   logo: {
     width: 60,
     height: 130,
     alignSelf: "center",
   },
-  
+
   buttonText: {
     color: "white",
     fontSize: 10,
@@ -120,6 +148,25 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     marginTop: 10,
   },
+  text: {
+    color: Colors.accent500,
+    fontSize: 10,
+    fontWeight: "bold",
+    marginBottom: 5,
+  },
+  textInputView: {
+    backgroundColor: Colors.primary500,
+    padding: 10,
+    borderBottomColor: "white",
+    borderBottomWidth: 1,
+    flexDirection: "row",
+  },
+  textInputText: {
+    color: "white",
+  },
+  icon: {
+    justifyContent: 'flex-end'
+},
 });
 
 export default StartScreen;
