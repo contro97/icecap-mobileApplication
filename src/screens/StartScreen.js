@@ -1,18 +1,28 @@
 import {
-  SafeAreaView,
   Image,
   Text,
-  Button,
   View,
-  TextInput,
   StyleSheet,
 } from "react-native";
 import Colors from "../constants/Colors";
 import Input from "../components/Input";
 import PrimaryButton from "../components/PrimaryButton";
 import {widthPercentageToDP,  heightPercentageToDP } from 'react-native-responsive-screen';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { useState } from "react";
 
 export function StartScreen({ navigation }) {
+
+  // State variable to hold the password
+  const [password, setPassword] = useState('');
+  
+  // State variable to track password visibility
+  const [showPassword, setShowPassword] = useState(false);
+
+  // Function to toggle the password visibility state
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+};
   
   return (
     <View style={styles.container}>
@@ -26,7 +36,12 @@ export function StartScreen({ navigation }) {
 
       <View style={styles.loginFieldContainer}>
         <Input placeholder="EMAIL ADDRESS"></Input>
-        <Input placeholder="PASSWORD"></Input>
+        <Input 
+        secureTextBool={!showPassword} 
+        placeholder="PASSWORD"
+        onChangeText={setPassword}
+        >
+        </Input>
         <Text style={styles.buttonText}>FORGOT YOUR PASSWORD?</Text>
         <PrimaryButton>
           <Text>LOG IN</Text>
@@ -35,7 +50,7 @@ export function StartScreen({ navigation }) {
 
 
       <View style={styles.createAccountContainer}>
-        <Text style={styles.infoText}>Let's get setup for success</Text>
+        <Text style={styles.infoText}>Let's get setup for success.</Text>
         <PrimaryButton>
           <Text>CREATE ACCOUNT</Text>
         </PrimaryButton>
@@ -57,17 +72,17 @@ const styles = StyleSheet.create({
   imgContainer:{
     height: heightPercentageToDP(25),
     marginTop: heightPercentageToDP(7.5),
-    // backgroundColor: 'red'
+    backgroundColor: 'red'
     
   },
   loginFieldContainer: {
     marginTop: heightPercentageToDP(2.5),
-    height: heightPercentageToDP(25),
-    // backgroundColor: 'blue',
+    height: heightPercentageToDP(30),
+    backgroundColor: 'blue',
   },
   createAccountContainer:{
     marginTop: heightPercentageToDP(10),
-    // backgroundColor: 'green',
+    backgroundColor: 'green',
   },
   helpContainer: {
     position: "absolute",
@@ -75,7 +90,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     // marginBottom: heightPercentageToDP(1),
     // marginTop: heightPercentageToDP(5),
-    // backgroundColor: 'purple',
+    backgroundColor: 'purple',
   },
   logo: {
     width: 60,

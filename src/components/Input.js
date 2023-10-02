@@ -1,12 +1,15 @@
 import { TextInput, View, Text, StyleSheet } from "react-native";
 import Colors from "../constants/Colors";
 
-export function Input({ placeholder, ...rest }) {
+export function Input({ placeholder, secureTextBool,...rest }) {
   return (
     <View style={styles.container}>
         <Text style={styles.text}>{placeholder}</Text>
         <View style={styles.textInputView}>
-        <TextInput style={styles.textInputText}></TextInput>
+        <TextInput 
+        style={styles.textInputText}
+        secureTextEntry={secureTextBool}
+        ></TextInput>
         </View>
     </View>
   );
