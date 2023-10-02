@@ -55,25 +55,27 @@ const styles = StyleSheet.create({
     flex: 1
   },
   imgContainer:{
+    height: heightPercentageToDP(25),
     marginTop: heightPercentageToDP(7.5),
-    backgroundColor: 'red'
+    // backgroundColor: 'red'
     
   },
   loginFieldContainer: {
-    marginTop: heightPercentageToDP(12.5),
-    backgroundColor: 'blue',
+    marginTop: heightPercentageToDP(2.5),
+    height: heightPercentageToDP(25),
+    // backgroundColor: 'blue',
   },
   createAccountContainer:{
-    marginTop: heightPercentageToDP(2.5),
-    backgroundColor: 'green',
+    marginTop: heightPercentageToDP(10),
+    // backgroundColor: 'green',
   },
   helpContainer: {
     position: "absolute",
     bottom: 0,
     alignSelf: "center",
-    marginBottom: heightPercentageToDP(1),
-    marginTop: heightPercentageToDP(5),
-    backgroundColor: 'purple',
+    // marginBottom: heightPercentageToDP(1),
+    // marginTop: heightPercentageToDP(5),
+    // backgroundColor: 'purple',
   },
   logo: {
     width: 60,
