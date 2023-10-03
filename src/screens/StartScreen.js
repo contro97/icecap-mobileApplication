@@ -7,7 +7,6 @@ import {
   TextInput,
 } from "react-native";
 import Colors from "../constants/Colors";
-import Input from "../components/Input";
 import PrimaryButton from "../components/PrimaryButton";
 import {
   widthPercentageToDP,
@@ -43,17 +42,8 @@ export function StartScreen({ navigation }) {
           <Text style={styles.text}>EMAIL</Text>
           <View style={styles.textInputView}>
             <TextInput
-              style={styles.textInputText}
-              
-            >
-              <MaterialCommunityIcons
-                // name={showPassword ? 'eye-off' : 'eye'}
-                size={24}
-                color="#white"
-                style={styles.icon}
-                // onPress={toggleShowPassword}
-              />
-            </TextInput>
+              style={styles.textInputText}              
+            />            
           </View>
         </View>
 
@@ -63,6 +53,7 @@ export function StartScreen({ navigation }) {
             <TextInput
               style={styles.textInputText}
               secureTextEntry={!showPassword} 
+              backgroundColor='blue'
             />
             <MaterialCommunityIcons
                 name={showPassword ? 'eye-off' : 'eye'}
@@ -70,6 +61,7 @@ export function StartScreen({ navigation }) {
                 color="#aaa"
                 style={styles.icon}
                 onPress={toggleShowPassword}
+                backgroundColor='red'
               />
           </View>
         </View>
@@ -155,6 +147,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   textInputView: {
+    justifyContent: 'space-between',
     backgroundColor: Colors.primary500,
     padding: 10,
     borderBottomColor: "white",
