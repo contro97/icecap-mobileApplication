@@ -156,10 +156,9 @@ const styles = StyleSheet.create({
   },
   textInputText: {
     color: "white",
+    width: widthPercentageToDP("70%"),
   },
-  icon: {
-    justifyContent: 'flex-end'
-},
+  
 });
 
 export default StartScreen;
