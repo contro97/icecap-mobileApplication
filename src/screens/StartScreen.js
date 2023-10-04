@@ -42,8 +42,16 @@ export function StartScreen({ navigation }) {
           <Text style={styles.text}>EMAIL</Text>
           <View style={styles.textInputView}>
             <TextInput
-              style={styles.textInputText}              
+              style={styles.textInputText}   
+                                    
             />            
+            <MaterialCommunityIcons 
+              name="close-circle" 
+              size={24} 
+              color="#aaa" 
+              style={styles.icon} 
+              
+            />
           </View>
         </View>
 
@@ -53,7 +61,7 @@ export function StartScreen({ navigation }) {
             <TextInput
               style={styles.textInputText}
               secureTextEntry={!showPassword} 
-              backgroundColor='blue'
+              
             />
             <MaterialCommunityIcons
                 name={showPassword ? 'eye-off' : 'eye'}
@@ -61,11 +69,11 @@ export function StartScreen({ navigation }) {
                 color="#aaa"
                 style={styles.icon}
                 onPress={toggleShowPassword}
-                backgroundColor='red'
+                
               />
           </View>
         </View>
-
+r
         <Text style={styles.buttonText}>FORGOT YOUR PASSWORD?</Text>
         <PrimaryButton>
           <Text>LOG IN</Text>
@@ -149,14 +157,15 @@ const styles = StyleSheet.create({
   textInputView: {
     justifyContent: 'space-between',
     backgroundColor: Colors.primary500,
-    padding: 10,
+    // backgroundColor: 'red',
+    padding: '5%',
     borderBottomColor: "white",
     borderBottomWidth: 1,
     flexDirection: "row",
   },
   textInputText: {
     color: "white",
-    width: widthPercentageToDP("70%"),
+    flex: 1
   },
   
 });

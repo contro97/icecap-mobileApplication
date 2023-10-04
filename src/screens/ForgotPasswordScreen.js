@@ -15,7 +15,11 @@ import { useState } from "react";
 export function ForgotPasswordScreen() {
   return (
     <View>
-      <Text>Back Button</Text>
+      <MaterialCommunityIcons
+                name='arrow-left'
+                size={24}
+                color="#aaa"                
+        />
       <View style={styles.primaryContainer}>
         <Text style={styles.text}>Forgot your password?</Text>
         <Text style={styles.text}>Please enter your email below.</Text>
@@ -42,6 +46,7 @@ const styles = StyleSheet.create({
     justifyContent: "center" ,
     margin: 10,
     marginHorizontal: 30,
+    alignItems: "center",
   },
   textInputView: {
     justifyContent: 'space-between',
@@ -50,7 +55,14 @@ const styles = StyleSheet.create({
     borderBottomColor: "white",
     borderBottomWidth: 1,
     flexDirection: "row",
+    width: 300,
+    backgroundColor: 'blue'
   },
+  textInputText: {
+    width: 300, 
+    color: 'white',
+    textAlign: 'center',
+  }
 });
 
 export default ForgotPasswordScreen;

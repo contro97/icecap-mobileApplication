@@ -16,8 +16,8 @@ export default function App() {
       style={styles.rootScreen}
     >
       <SafeAreaView style={styles.rootScreen}>
-        <StartScreen />
-        {/* <ForgotPasswordScreen /> */}
+        {/* <StartScreen /> */}
+        <ForgotPasswordScreen />
       </SafeAreaView>
     </LinearGradient>
   );
