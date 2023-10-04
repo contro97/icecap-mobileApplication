@@ -1,9 +1,12 @@
-import { StartScreen } from "./src/screens";
+import { StartScreen, ForgotPasswordScreen } from "./src/screens";
+import AdjustScreen from "./src/screens/AdjustScreen";
+
+
 import { useWindowDimensions, SafeAreaView, View, Text, StyleSheet } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import Colors from "./src/constants/Colors";
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-screen';
-import AdjustScreen from "./src/screens/AdjustScreen";
+
 
 export default function App() {
 
@@ -14,6 +17,7 @@ export default function App() {
     >
       <SafeAreaView style={styles.rootScreen}>
         <StartScreen />
+        {/* <ForgotPasswordScreen /> */}
       </SafeAreaView>
     </LinearGradient>
   );
