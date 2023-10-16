@@ -7,8 +7,8 @@ import {
   TextInput,
   Pressable,
 } from "react-native";
-import Colors from "../constants/Colors";
-import PrimaryButton from "../components/PrimaryButton";
+import Colors from "../../constants/Colors";
+import PrimaryButton from "../../components/PrimaryButton";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useState } from "react";
 

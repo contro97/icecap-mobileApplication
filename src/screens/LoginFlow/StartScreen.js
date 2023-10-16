@@ -5,15 +5,17 @@ import {
   StyleSheet,
   useWindowDimensions,
   TextInput,
+  SafeAreaView
 } from "react-native";
-import Colors from "../constants/Colors";
-import PrimaryButton from "../components/PrimaryButton";
+import Colors from "../../constants/Colors";
+import PrimaryButton from "../../components/PrimaryButton";
 import {
   widthPercentageToDP,
   heightPercentageToDP,
 } from "react-native-responsive-screen";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useState } from "react";
+import { LinearGradient } from "expo-linear-gradient";
 
 export function StartScreen({ navigation }) {
   // State variable to hold the password
@@ -28,7 +30,12 @@ export function StartScreen({ navigation }) {
   };
 
   return (
-    <View style={styles.container}>
+    <LinearGradient
+      colors={[Colors.primary600, Colors.primary800]}
+      style={styles.rootScreen}
+    >
+      <SafeAreaView style={styles.rootScreen}>
+      <View style={styles.container}>
       <View style={styles.imgContainer}>
         <Image
           source={require("../../assets/IcecapLogoWhite.png")}
@@ -37,21 +44,11 @@ export function StartScreen({ navigation }) {
       </View>
 
       <View style={styles.loginFieldContainer}>
-        
         <View style={styles.containerInputBox}>
           <Text style={styles.text}>EMAIL</Text>
           <View style={styles.textInputView}>
-            <TextInput
-              style={styles.textInputText}   
-                                    
-            />            
-            <MaterialCommunityIcons 
-              name="close-circle" 
-              size={24} 
-              color="#aaa" 
-              style={styles.icon} 
-              
-            />
+            <TextInput style={styles.textInputText} />
+            
           </View>
         </View>
 
@@ -60,20 +57,18 @@ export function StartScreen({ navigation }) {
           <View style={styles.textInputView}>
             <TextInput
               style={styles.textInputText}
-              secureTextEntry={!showPassword} 
-              
+              secureTextEntry={!showPassword}
             />
             <MaterialCommunityIcons
-                name={showPassword ? 'eye-off' : 'eye'}
-                size={24}
-                color="#aaa"
-                style={styles.icon}
-                onPress={toggleShowPassword}
-                
-              />
+              name={showPassword ? "eye-off" : "eye"}
+              size={24}
+              color="#aaa"
+              style={styles.icon}
+              onPress={toggleShowPassword}
+            />
           </View>
         </View>
-r
+
         <Text style={styles.buttonText}>FORGOT YOUR PASSWORD?</Text>
         <PrimaryButton>
           <Text>LOG IN</Text>
@@ -81,7 +76,7 @@ r
       </View>
 
       <View style={styles.createAccountContainer}>
-        <Text style={styles.infoText}>Let's get setup for success.</Text>
+        <Text style={styles.infoText}>Don't have an account? Sign up!</Text>
         <PrimaryButton>
           <Text>CREATE ACCOUNT</Text>
         </PrimaryButton>
@@ -92,10 +87,17 @@ r
         <Text style={styles.buttonText}>CAN'T LOGIN? EMAIL SUPPORT</Text>
       </View>
     </View>
+        
+      </SafeAreaView>
+</LinearGradient>
+    
   );
 }
 
 const styles = StyleSheet.create({
+  rootScreen: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     // backgroundColor: 'yellow',
@@ -155,19 +157,19 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   textInputView: {
-    justifyContent: 'space-between',
+    justifyContent: "space-between",
     backgroundColor: Colors.primary500,
     // backgroundColor: 'red',
-    padding: '5%',
+    padding: "5%",
     borderBottomColor: "white",
     borderBottomWidth: 1,
     flexDirection: "row",
   },
   textInputText: {
     color: "white",
-    flex: 1
+    flex: 1,
   },
-  
 });
 
 export default StartScreen;
+

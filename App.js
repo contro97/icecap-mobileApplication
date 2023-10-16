@@ -1,30 +1,38 @@
-import { StartScreen, ForgotPasswordScreen } from "./src/screens";
-import AdjustScreen from "./src/screens/AdjustScreen";
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
+import SessionsOverview from './src/screens/SessionsOverview';
+import StartSession from './src/screens/StartSession.js';
+import Settings from './src/screens/Settings.js'
 
-import { useWindowDimensions, SafeAreaView, View, Text, StyleSheet } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
-import Colors from "./src/constants/Colors";
-import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-screen';
+const Stack = createNativeStackNavigator(); //Navigator object, which contains all the screens in our app
+const BottomTabs = createBottomTabNavigator(); 
 
+function TrainingOverview(){
+  return(
+    <BottomTabs.Navigator>
+      <BottomTabs.Screen name="Sessions Overview" component={SessionsOverview}/>
+      <BottomTabs.Screen name="Start Session" component={StartSession}/>
+      <BottomTabs.Screen name="Settings" component={Settings}/>
+    </BottomTabs.Navigator>
+  )
+}
 
 export default function App() {
 
   return (
-    <LinearGradient
-      colors={[Colors.primary600, Colors.primary800]}
-      style={styles.rootScreen}
-    >
-      <SafeAreaView style={styles.rootScreen}>
-        {/* <StartScreen /> */}
-        <ForgotPasswordScreen />
-      </SafeAreaView>
-    </LinearGradient>
+    <>
+    <StatusBar style='light'/>
+    <NavigationContainer>
+    <Stack.Navigator initialRouteName="Summary">        
+        <Stack.Screen name="Training" component={TrainingOverview}/>
+        
+      </Stack.Navigator>
+    </NavigationContainer>    
+    </>
   );
 }
 
-const styles = StyleSheet.create({
-  rootScreen: {
-    flex: 1,
-  },
-});
