@@ -28,7 +28,11 @@ export default function App() {
     <StatusBar style='light'/>
     <NavigationContainer>
     <Stack.Navigator initialRouteName="Summary">        
-        <Stack.Screen name="Training" component={TrainingOverview}/>
+        <Stack.Screen
+         name="Training" 
+         component={TrainingOverview}
+         options={{headerShown:false}}
+         />
         
       </Stack.Navigator>
     </NavigationContainer>    
