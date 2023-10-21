@@ -1,4 +1,4 @@
-export const globalStyles = StyleSheet.create({
+export const GlobalStyles ={
     colors:{
         primary50:'#a1d1f8',
         primary100:'#67b7f9',
@@ -15,4 +15,4 @@ export const globalStyles = StyleSheet.create({
         gray500:'#39324a',
         gray700:'#221c30'
     }
-})
+};
