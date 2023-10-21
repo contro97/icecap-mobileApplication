@@ -20,13 +20,18 @@ function SessionItem({ id, description, totalShots, timeElapsed, date }) {
       style={({ pressed }) => pressed && styles.pressed}
     >
       <View style={styles.sessionItem}>
-        <View>
-        
-          <Text style={[styles.textBase, styles.description]}>Shooting</Text>
-          <Text style={styles.textBase}>Date</Text>
+        <View style={styles.activityContainer}>
+          <View style={styles.shotCountContainer}>
+            <Text style={styles.shotCount}>50</Text>
+          </View>
+          <View style={styles.descriptionContainer}>
+            <Text style={[styles.textBase, styles.description]}>SHOOTING</Text>
+            <Text style={[styles.textBase, styles.dateText]}>Oct 20, 1997</Text>
+          </View>
         </View>
-        <View style={styles.shotCountContainer}>
-          <Text style={styles.shotCount}>50</Text>
+
+        <View>
+          <Text style={styles.textBase}>0:35</Text>
         </View>
       </View>
     </Pressable>
@@ -51,6 +56,7 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     shadowOffset: { width: 1, height: 1 },
     shadowOpacity: 0.4,
+    alignItems: "center",
   },
   textBase: {
     color: GlobalStyles.colors.primary50,
@@ -59,6 +65,15 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginBottom: 4,
     fontWeight: "bold",
+    margin: 5,
+  },
+  dateText: {
+    marginLeft: 5,
+    fontSize: 16,
+    marginBottom: 1,
+  },
+  activityContainer: {
+    flexDirection: "row",
   },
   shotCountContainer: {
     paddingHorizontal: 12,
@@ -72,5 +87,10 @@ const styles = StyleSheet.create({
   shotCount: {
     color: GlobalStyles.colors.primary500,
     fontWeight: "bold",
+    fontSize: 24
+  },
+  descriptionContainer : {
+    margin: 4,
+    alignItems: 'left'
   },
 });

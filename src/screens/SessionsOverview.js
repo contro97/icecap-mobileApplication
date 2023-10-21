@@ -7,6 +7,8 @@ function SessionsOverview(){
         <View>
             <Text>Session Overview</Text>
             <SessionItem />
+            <SessionItem />
+            <SessionItem />
         </View>
     )
 }
