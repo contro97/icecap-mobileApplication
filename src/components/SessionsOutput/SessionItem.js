@@ -9,9 +9,9 @@ function SessionItem({ id, description, totalShots, timeElapsed, date }) {
 
   function sessionPressHandler() {
     console.log("Session Pressed");
-    // navigation.navigate('SessionDetails', {
-    //     sessionId: id
-    // });
+    navigation.navigate('SessionDetails', {
+        sessionId: id
+    });
   }
 
   return (

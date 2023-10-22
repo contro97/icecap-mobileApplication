@@ -7,6 +7,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import SessionsOverview from './src/screens/SessionsOverview';
 import StartSession from './src/screens/StartSession.js';
 import Settings from './src/screens/Settings.js'
+import SessionDetails from './src/screens/SessionDetails';
 
 const Stack = createNativeStackNavigator(); //Navigator object, which contains all the screens in our app
 const BottomTabs = createBottomTabNavigator(); 
@@ -33,7 +34,13 @@ export default function App() {
          component={TrainingOverview}
          options={{headerShown:false}}
          />
-        
+         <Stack.Screen 
+         name="SessionDetails"
+         component={SessionDetails}
+         options = {{
+          presentation: "modal"
+         }}
+         />
       </Stack.Navigator>
     </NavigationContainer>    
     </>
