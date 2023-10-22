@@ -22,16 +22,16 @@ function SessionItem({ id, description, totalShots, timeElapsed, date }) {
       <View style={styles.sessionItem}>
         <View style={styles.activityContainer}>
           <View style={styles.shotCountContainer}>
-            <Text style={styles.shotCount}>50</Text>
+            <Text style={styles.shotCount}>{totalShots}</Text>
           </View>
           <View style={styles.descriptionContainer}>
-            <Text style={[styles.textBase, styles.description]}>SHOOTING</Text>
-            <Text style={[styles.textBase, styles.dateText]}>Oct 20, 1997</Text>
+            <Text style={[styles.textBase, styles.description]}>{description}</Text>
+            <Text style={[styles.textBase, styles.dateText]}>{date}</Text>
           </View>
         </View>
 
         <View>
-          <Text style={styles.textBase}>0:35</Text>
+        <Text style={styles.textBase}>{timeElapsed}</Text>
         </View>
       </View>
     </Pressable>
