@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     opacity: 0.75,
   },
   sessionItem: {
-    padding: 12,
+    padding: 8,
     marginVertical: 8,
     backgroundColor: GlobalStyles.colors.primary500,
     flexDirection: "row",
@@ -60,6 +60,7 @@ const styles = StyleSheet.create({
   },
   textBase: {
     color: GlobalStyles.colors.primary50,
+    fontSize: 20
   },
   description: {
     fontSize: 16,
@@ -77,7 +78,7 @@ const styles = StyleSheet.create({
   },
   shotCountContainer: {
     paddingHorizontal: 12,
-    paddingVertical: 4,
+    paddingVertical: 2,
     backgroundColor: "white",
     justifyContent: "center",
     alignItems: "center",
