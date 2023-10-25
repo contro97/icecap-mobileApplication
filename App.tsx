@@ -5,8 +5,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import SessionsOverview from './src/screens/SessionsOverview';
-import StartSession from './src/screens/StartSession.js';
-import Settings from './src/screens/Settings.js'
+import StartSession from './src/screens/StartSession';
+import Settings from './src/screens/Settings'
 import SessionDetails from './src/screens/SessionDetails';
 
 const Stack = createNativeStackNavigator(); //Navigator object, which contains all the screens in our app

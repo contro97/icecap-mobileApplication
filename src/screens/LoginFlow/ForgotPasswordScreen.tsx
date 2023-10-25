@@ -7,7 +7,7 @@ import {
   TextInput,
   Pressable,
 } from "react-native";
-import Colors from "../../constants/Colors";
+import { GlobalStyles } from "src/constants/Colors";
 import PrimaryButton from "../../components/PrimaryButton";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useState } from "react";
@@ -50,13 +50,12 @@ const styles = StyleSheet.create({
   },
   textInputView: {
     justifyContent: 'space-between',
-    backgroundColor: Colors.primary500,
+    backgroundColor: GlobalStyles.colors.primary500,
     padding: 10,
     borderBottomColor: "white",
     borderBottomWidth: 1,
     flexDirection: "row",
     width: 300,
-    backgroundColor: 'blue'
   },
   textInputText: {
     width: 300, 

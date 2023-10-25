@@ -4,14 +4,14 @@ import { useNavigation } from "@react-navigation/native";
 import { GlobalStyles } from "../../constants/Colors";
 // import formattedDate
 
-function SessionItem({ id, description, totalShots, timeElapsed, date }) {
-  const navigation = useNavigation();
+
+function SessionItem({ id , description, totalShots, timeElapsed, date } :
+   {id: string, description: string, totalShots: number, timeElapsed: string, date: string}) {
+  const navigation : any = useNavigation(); // change type to any to avoid error
 
   function sessionPressHandler() {
     console.log("Session Pressed");
-    navigation.navigate('SessionDetails', {
-        sessionId: id
-    });
+    navigation.navigate('SessionDetails');
   }
 
   return (
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     backgroundColor: GlobalStyles.colors.primary500,
     flexDirection: "row",
     justifyContent: "space-between",
-    borderRadius: 6,
+    borderRadius: 12,
     elevation: 3,
     shadowColor: GlobalStyles.colors.gray500,
     shadowRadius: 4,
@@ -92,6 +92,6 @@ const styles = StyleSheet.create({
   },
   descriptionContainer : {
     margin: 4,
-    alignItems: 'left'
+    alignItems: "flex-start",
   },
 });

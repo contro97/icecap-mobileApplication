@@ -1,6 +1,6 @@
 import { TextInput, View } from "react-native";
 
-import { Input } from "./Input"
+import Input from './Input'
 
 function LoginForm(){
     return(

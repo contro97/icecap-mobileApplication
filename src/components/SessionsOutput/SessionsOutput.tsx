@@ -5,7 +5,7 @@ import SessionsSummary from "./SessionsSummary";
 
 
 
-function SessionsOutput({sessions, fallbackText}) {
+function SessionsOutput({sessions, fallbackText} : {sessions: any, fallbackText: string}) {
   let content = <Text>{fallbackText}</Text>;
 
   

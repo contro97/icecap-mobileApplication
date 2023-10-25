@@ -1,11 +1,11 @@
 import { View, Text } from "react-native";
 
-function SessionsSummary({ sessions, sessionsPeriod }) {
-  const shotSum = sessions.reduce((sum, session) => {
+function SessionsSummary({ sessions, sessionsPeriod } : {sessions: any, sessionsPeriod: string})  {
+  const shotSum = sessions.reduce((sum: any, session: any ) => {
     return sum + session.totalShots;
   }, 0);
 
-  const practiceTimeSum = sessions.reduce((sum, session) => {
+  const practiceTimeSum = sessions.reduce((sum : any, session : any) => {
     return sum + session.timeElapsed;
   }, 0);
 
