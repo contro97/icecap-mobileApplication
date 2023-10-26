@@ -1,6 +1,6 @@
 import { View, Text } from "react-native"
 
-import SessionsOutput from "../components/SessionsOutput/SessionsOutput";
+import SessionsOutput from "../../components/SessionsOutput/SessionsOutput";
 
 const DUMMY_SESSIONS = [
     {

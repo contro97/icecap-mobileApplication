@@ -12,6 +12,8 @@ import {
     VictoryPolarAxis
  } from "victory-native";
 
+import { SessionDetailsType } from "./SessionDetailsType";
+
 
 function SessionDetails( route : any) {
   const selectedSessionId = route.params?.sessionId;
@@ -29,7 +31,7 @@ function SessionDetails( route : any) {
   theme={VictoryTheme.material}
 >
   {
-     ["Overhand Left", "Overhand Right", "Sidearm Left", "Sidearm Right", "Underhand L", "Underhand R"].map((d, i) => {
+     ["Overhand Left", "Overhand Right", "Sidearm Left", "Sidearm Right", "Underhand Left", "Underhand Right"].map((d, i) => {
       return (
         <VictoryPolarAxis dependentAxis
           key={i}
@@ -48,8 +50,8 @@ function SessionDetails( route : any) {
       { x: "Overhand Right", y: 25 },
       { x: "Overhand Left", y: 40 },
       { x: "Sidearm Left", y: 50 },
-      { x: "Underhand L", y: 50 },
-      { x: "Underhand R", y: 50 }
+      { x: "Underhand Left", y: 50 },
+      { x: "Underhand Right", y: 50 }
     ]}
   />
 </VictoryChart>

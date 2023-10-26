@@ -4,10 +4,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import SessionsOverview from './src/screens/SessionsOverview';
+import SessionsOverview from './src/screens/SessionDataScreens/SessionsOverview';
 import StartSession from './src/screens/StartSession';
 import Settings from './src/screens/Settings'
-import SessionDetails from './src/screens/SessionDetails';
+import SessionDetails from './src/screens/SessionDataScreens/SessionDetails';
 
 const Stack = createNativeStackNavigator(); //Navigator object, which contains all the screens in our app
 const BottomTabs = createBottomTabNavigator(); 
