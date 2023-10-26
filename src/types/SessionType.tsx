@@ -1,4 +1,4 @@
-export type SessionDetailsType = {
+export type SessionType = {
     activity : string,
     endtime : string,
     sessionid : string,

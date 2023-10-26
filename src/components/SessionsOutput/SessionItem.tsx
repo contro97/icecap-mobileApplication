@@ -2,17 +2,17 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import { GlobalStyles } from "../../constants/Colors";
-// import formattedDate
+
+import { SessionType } from "src/types/SessionType";
 
 
-function SessionItem({ id , description, totalShots, timeElapsed, date } :
-   {id: string, description: string, totalShots: number, timeElapsed: string, date: string}) {
+function SessionItem(session: SessionType ) {
   const navigation : any = useNavigation(); // change type to any to avoid error
 
   function sessionPressHandler() {
     console.log("Session Pressed");
-    console.log("Session ID: " + id)
-    navigation.navigate('SessionDetails', { sessionId: id, totalShots: totalShots });
+    console.log("Session ID: " + session.sessionid)
+    navigation.navigate('SessionDetails', { sessionId: session.sessionid });
   }
 
   return (
@@ -23,16 +23,16 @@ function SessionItem({ id , description, totalShots, timeElapsed, date } :
       <View style={styles.sessionItem}>
         <View style={styles.activityContainer}>
           <View style={styles.shotCountContainer}>
-            <Text style={styles.shotCount}>{totalShots}</Text>
+            <Text style={styles.shotCount}>{session.totalshots}</Text>
           </View>
           <View style={styles.descriptionContainer}>
-            <Text style={[styles.textBase, styles.description]}>{description}</Text>
-            <Text style={[styles.textBase, styles.dateText]}>{date}</Text>
+            <Text style={[styles.textBase, styles.description]}>{session.activity}</Text>
+            <Text style={[styles.textBase, styles.dateText]}>{session.starttime}</Text>
           </View>
         </View>
 
         <View>
-        <Text style={styles.textBase}>{timeElapsed}</Text>
+        <Text style={styles.textBase}>{session.sessiontime}</Text>
         </View>
       </View>
     </Pressable>
