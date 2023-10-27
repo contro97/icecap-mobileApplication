@@ -20,7 +20,7 @@ const DUMMY_SESSIONS : SessionType[] = [
     sport: "Lacrosse",
     starttime: "11/28/2022 7:15:32 PM",
     topspeed: "97.41",
-    totalshots: 77,
+    totalshots: 87,
     url: "https://firebasestorage.googleapis.com/v0/b/icecap-sports-app-12-20.appspot.com/o/Users%2F3lZCk4XzsXT74g9u77kAPPrDrRv1%2FLacrosse%2FTrainingData%2FSAL.csv?alt=media&token=d90edb28-6da0-4c5b-9bcf-bc790fc9ab81",
   },
   {
@@ -45,7 +45,7 @@ const DUMMY_SESSIONS : SessionType[] = [
   {
     activity: "Shooting",
     endtime: "11/28/2022 7:25:33 PM",
-    sessionid: "3lZCk4XzsXT74g9uPPrDrRv1.1",
+    sessionid: "3lZC4XzsXT74g9uPPrDrRv1.1",
     sessiontime: 10,
     shotsleft: 3,
     shotsoverhandleft: 1,
@@ -64,7 +64,7 @@ const DUMMY_SESSIONS : SessionType[] = [
   {
     activity: "Shooting",
     endtime: "11/28/2022 7:25:33 PM",
-    sessionid: "3lZCk4XzsXT74g9uPPrDrRv1.1",
+    sessionid: "3lZCzsXT74g9uPPrDrRv1.1",
     sessiontime: 10,
     shotsleft: 1,
     shotsoverhandleft: 1,
@@ -82,7 +82,7 @@ const DUMMY_SESSIONS : SessionType[] = [
   }
 ];
 
-function SessionsOverview() {
+function SessionsOverview(sessionData: SessionType[]) {
   return (
     <View>
       <SessionsOutput

@@ -33,7 +33,7 @@ function SessionItem(session: SessionType ) {
         </View>
 
         <View>
-        <Text style={styles.textBase}>{session.sessiontime}</Text>
+        <Text style={styles.textBase}>{session.sessiontime}m</Text>
         </View>
       </View>
     </Pressable>
