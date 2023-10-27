@@ -31,21 +31,25 @@ const sessionTestData: SessionType = {
   url: "https://firebasestorage.googleapis.com/v0/b/icecap-sports-app-12-20.appspot.com/o/Users%2F3lZCk4XzsXT74g9u77kAPPrDrRv1%2FLacrosse%2FTrainingData%2FSAL.csv?alt=media&token=d90edb28-6da0-4c5b-9bcf-bc790fc9ab81",
 };
 
-function SessionDetails(route: any) {
-  const selectedSessionId = route.params?.sessionId;
+function SessionDetails({route, navigation} : any) {
+  const selectedSessionId = route.params.sessionId;
 
-  console.log(selectedSessionId);
+  console.log("session id of session details param:", selectedSessionId);
+  console.log(route.params?.session.totalshots)
 
   return (
     <ScrollView>
       <View style={styles.statsItem}>
-        <Text> SessionID: {sessionTestData.sessionid} </Text>
+        <Text>Activity: {sessionTestData.activity} </Text>
       </View>
       <View style={styles.statsItem}>
-        <Text> Total Shots: {sessionTestData.totalshots}</Text>
+        <Text> Total Shots: {route.params?.session.totalshots}</Text>
       </View>
       <View style={styles.statsItem}>
-        <Text> Top Speed: {sessionTestData.topspeed} mph</Text>
+        <Text> Top Speed: {route.params?.session.topspeed} mph</Text>
+      </View>
+      <View style={styles.statsItem}>
+        <Text> Session Time: {route.params?.session.sessiontime} minutes</Text>
       </View>
       <View>
         <VictoryChart polar theme={VictoryTheme.material}>
@@ -71,32 +75,36 @@ function SessionDetails(route: any) {
           <VictoryBar
             style={{ data: { fill: "tomato", width: 25 } }}
             data={[
-              { x: "Sidearm Right", y: sessionTestData.shotssidearmright },
-              { x: "Overhand Right", y: sessionTestData.shotsoverhandright },
-              { x: "Overhand Left", y: sessionTestData.shotsoverhandleft },
-              { x: "Sidearm Left", y: sessionTestData.shotssidearmleft },
-              { x: "Underhand Left", y: sessionTestData.shotsunderhandleft },
-              { x: "Underhand Right", y: sessionTestData.shotsunderhandright },
+              { x: "Sidearm Right", y: route.params?.session.shotssidearmright },
+              { x: "Overhand Right", y: route.params?.session.shotsoverhandright },
+              { x: "Overhand Left", y: route.params?.session.shotsoverhandleft },
+              { x: "Sidearm Left", y: route.params?.session.shotssidearmleft },
+              { x: "Underhand Left", y: route.params?.session.shotsunderhandleft },
+              { x: "Underhand Right", y: route.params?.session.shotsunderhandright },
             ]}
           />
         </VictoryChart>
       </View>
       <View style={styles.statsItem}>
-        <Text>Left Side Total: {sessionTestData.shotsleft} </Text>
-        <Text>Right Side Total: {sessionTestData.shotsright} </Text>        
+        <Text>{route.params?.session.shotsleft}</Text>
+        <Text>Total</Text>
+        <Text>{route.params?.session.shotsright}</Text>        
       </View>
       <View style={styles.linebreak} />
       <View style={styles.statsItem}>
-        <Text>Overhand: {sessionTestData.shotsoverhandleft} </Text>
-        <Text> Overhand: {sessionTestData.shotsoverhandright} </Text>        
+        <Text>{route.params?.session.shotsoverhandleft}</Text>
+        <Text>Overhand</Text>
+        <Text>{route.params?.session.shotsoverhandright}</Text>        
       </View>
       <View style={styles.statsItem}>
-        <Text>Sidearm: {sessionTestData.shotssidearmleft} </Text>
-        <Text>Sidearm: {sessionTestData.shotssidearmright} </Text>        
+        <Text>{route.params?.session.shotssidearmleft}</Text>
+        <Text>Sidearm</Text>
+        <Text>{route.params?.session.shotssidearmright}</Text>        
       </View>
       <View style={styles.statsItem}>
-        <Text>Underhand: {sessionTestData.shotsunderhandleft} </Text>
-        <Text>Underhand: {sessionTestData.shotsunderhandright} </Text>        
+        <Text>{route.params?.session.shotsunderhandleft}</Text>
+        <Text>Underhand</Text>
+        <Text>{route.params?.session.shotsunderhandright}</Text>        
       </View>
     </ScrollView>
   );

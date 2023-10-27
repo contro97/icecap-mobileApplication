@@ -2,7 +2,7 @@ import { View, Text } from "react-native";
 
 function SessionsSummary({ sessions, sessionsPeriod } : {sessions: any, sessionsPeriod: string})  {
   const shotSum = sessions.reduce((sum: any, session: any ) => {
-    return sum + session.totalShots;
+    return sum + session.totalshots;
   }, 0);
 
   const practiceTimeSum = sessions.reduce((sum : any, session : any) => {
