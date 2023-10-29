@@ -10,8 +10,7 @@ function SessionItem(session: SessionType ) {
   const navigation : any = useNavigation(); // change type to any to avoid error
 
   function sessionPressHandler() {
-    navigation.navigate('SessionDetails', { 
-      sessionId: session.sessionid,
+    navigation.navigate('Session Details', { 
       session: session,      
     });
   }

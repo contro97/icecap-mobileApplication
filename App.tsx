@@ -35,7 +35,7 @@ export default function App() {
          options={{headerShown:false}}
          />
          <Stack.Screen 
-         name="SessionDetails"
+         name="Session Details"
          component={SessionDetails}
          options = {{
           presentation: "modal"
