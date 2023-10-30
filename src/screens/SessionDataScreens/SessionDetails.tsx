@@ -6,18 +6,19 @@ import {
   VictoryPolarAxis,
 } from "victory-native";
 
-function SessionDetails({route, navigation} : any) {
-  
+import SessionData from "../../components/SessionsOutput/SessionData";
+
+function SessionDetails({ route, navigation }: any) {
   return (
     <ScrollView>
       <View style={styles.statsItem}>
         <Text>{route.params?.session.activity} </Text>
         <Text>{route.params?.session.sessiontime}m</Text>
-      </View>      
+      </View>
       <View style={styles.statsItem}>
         <Text>Top Speed</Text>
         <Text>{route.params?.session.topspeed} mph</Text>
-      </View>      
+      </View>
       <View>
         <VictoryChart polar theme={VictoryTheme.material}>
           {[
@@ -42,37 +43,53 @@ function SessionDetails({route, navigation} : any) {
           <VictoryBar
             style={{ data: { fill: "tomato", width: 25 } }}
             data={[
-              { x: "Sidearm Right", y: route.params?.session.shotssidearmright },
-              { x: "Overhand Right", y: route.params?.session.shotsoverhandright },
-              { x: "Overhand Left", y: route.params?.session.shotsoverhandleft },
+              {
+                x: "Sidearm Right",
+                y: route.params?.session.shotssidearmright,
+              },
+              {
+                x: "Overhand Right",
+                y: route.params?.session.shotsoverhandright,
+              },
+              {
+                x: "Overhand Left",
+                y: route.params?.session.shotsoverhandleft,
+              },
               { x: "Sidearm Left", y: route.params?.session.shotssidearmleft },
-              { x: "Underhand Left", y: route.params?.session.shotsunderhandleft },
-              { x: "Underhand Right", y: route.params?.session.shotsunderhandright },
+              {
+                x: "Underhand Left",
+                y: route.params?.session.shotsunderhandleft,
+              },
+              {
+                x: "Underhand Right",
+                y: route.params?.session.shotsunderhandright,
+              },
             ]}
           />
         </VictoryChart>
       </View>
-      <View style={styles.statsItem}>
-        <Text>{route.params?.session.shotsleft}</Text>
-        <Text>Total</Text>
-        <Text>{route.params?.session.shotsright}</Text>        
-      </View>
+
+      <SessionData
+        statName="Total"
+        dataLeft={route.params?.session.shotsleft}
+        dataRight={route.params?.session.shotsright}
+      />
       <View style={styles.linebreak} />
-      <View style={styles.statsItem}>
-        <Text>{route.params?.session.shotsoverhandleft}</Text>
-        <Text>Overhand</Text>
-        <Text>{route.params?.session.shotsoverhandright}</Text>        
-      </View>
-      <View style={styles.statsItem}>
-        <Text>{route.params?.session.shotssidearmleft}</Text>
-        <Text>Sidearm</Text>
-        <Text>{route.params?.session.shotssidearmright}</Text>        
-      </View>
-      <View style={styles.statsItem}>
-        <Text>{route.params?.session.shotsunderhandleft}</Text>
-        <Text>Underhand</Text>
-        <Text>{route.params?.session.shotsunderhandright}</Text>        
-      </View>
+      <SessionData
+        statName="Overhand"
+        dataLeft={route.params?.session.shotsoverhandleft}
+        dataRight={route.params?.session.shotsoverhandright}
+      />
+      <SessionData
+        statName="Sidearm"
+        dataLeft={route.params?.session.shotssidearmleft}
+        dataRight={route.params?.session.shotssidearmright}
+      />
+      <SessionData
+        statName="Underhand"
+        dataLeft={route.params?.session.shotsunderhandleft}
+        dataRight={route.params?.session.shotsunderhandright}
+      />
     </ScrollView>
   );
 }
@@ -88,8 +105,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     padding: 10,
   },
-  linebreak :{
-    borderBottomColor: 'black',
+  linebreak: {
+    borderBottomColor: "black",
     borderBottomWidth: 1,
-  }
+  },
 });
