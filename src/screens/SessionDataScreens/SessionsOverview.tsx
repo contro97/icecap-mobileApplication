@@ -62,7 +62,7 @@ const DUMMY_SESSIONS : SessionType[] = [
     url: "https://firebasestorage.googleapis.com/v0/b/icecap-sports-app-12-20.appspot.com/o/Users%2F3lZCk4XzsXT74g9u77kAPPrDrRv1%2FLacrosse%2FTrainingData%2FSAL.csv?alt=media&token=d90edb28-6da0-4c5b-9bcf-bc790fc9ab81",
   },
   {
-    activity: "Shooting",
+    activity: "Game",
     endtime: "11/28/2022 7:25:33 PM",
     sessionid: "3lZCzsXT74g9uPPrDrRv1.1",
     sessiontime: 10,

@@ -1,6 +1,14 @@
 import { StyleSheet, View, Text } from "react-native";
 
-function SessionData({statName , dataLeft , dataRight} : {statName: string, dataLeft: string, dataRight: string}) {
+function SessionData({
+  statName,
+  dataLeft,
+  dataRight,
+}: {
+  statName: string;
+  dataLeft: any;
+  dataRight: any;
+}) {
   return (
     <View style={styles.statsItem}>
       <Text>{dataLeft}</Text>

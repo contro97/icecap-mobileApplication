@@ -1,5 +1,6 @@
 import { View, Text } from "react-native";
 import { SessionType } from "src/types/SessionType";
+import SessionData from "../../components/SessionsOutput/SessionData";
 
 function SessionsSummary({ sessions, sessionsPeriod } : {sessions: SessionType[], sessionsPeriod: string})  {
   const shotSum = sessions.reduce((sum: any, session: any ) => {
@@ -24,10 +25,7 @@ function SessionsSummary({ sessions, sessionsPeriod } : {sessions: SessionType[]
       <Text>{sessionsPeriod}</Text>
       <Text>Practice Time: {practiceTimeSum} minutes</Text>
       <Text>Total Shots: {shotSum}</Text>
-      <Text>Lefty Total: {leftHandTotal}</Text>
-      <Text>Righty Total: {rightHandTotal}</Text>
-      <Text>Total Check = {leftHandTotal + rightHandTotal}</Text>
-
+      <Text> Test </Text>
     </View>
   );
 }
