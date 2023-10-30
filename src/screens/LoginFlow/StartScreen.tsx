@@ -7,11 +7,13 @@ import {
   TextInput,
   SafeAreaView
 } from "react-native";
-import {GlobalStyles} from '../../constants/Colors'
+import { GlobalStyles } from "../../constants/Colors";
 import PrimaryButton from "../../components/PrimaryButton";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useState } from "react";
-import LinearGradient from 'expo-linear-gradient';
+import {LinearGradient} from 'expo-linear-gradient';
+
+
 
 export function StartScreen( navigation: any ) {
   // State variable to hold the password
@@ -25,70 +27,76 @@ export function StartScreen( navigation: any ) {
     setShowPassword(!showPassword);
   };
 
-  // return (
-// //     <LinearGradient
-// //       colors = {[GlobalStyles.colors.primary100, GlobalStyles.colors.primary500 ]}
-// //       style={styles.rootScreen}
-// //     >
-// //       <SafeAreaView style={styles.rootScreen}>
-// //       <View style={styles.container}>
-// //       <View style={styles.imgContainer}>
-// //         <Image
-// //           source={require("../../assets/IcecapLogoWhite.png")}
-// //           style={styles.logo}
-// //         ></Image>
-// //       </View>
+  return (
+    <LinearGradient
+      colors = {[GlobalStyles.colors.primary500, GlobalStyles.colors.primary200]}
+      style={styles.rootScreen}
+    >
+      <SafeAreaView style={styles.rootScreen}>
+      <View style={styles.container}>
+      <View style={styles.imgContainer}>
+        <Image
+          source={require("../../../assets/IcecapLogoWhite.png")}
+          style={styles.logo}
+        ></Image>
+      </View>
 
-// //       <View style={styles.loginFieldContainer}>
-// //         <View style={styles.containerInputBox}>
-// //           <Text style={styles.text}>EMAIL</Text>
-// //           <View style={styles.textInputView}>
-// //             <TextInput style={styles.textInputText} />
+      <View style={styles.loginFieldContainer}>
+        <View style={styles.containerInputBox}>
+          <Text style={styles.text}>EMAIL</Text>
+          <View style={styles.textInputView}>
+            <TextInput style={styles.textInputText} />
             
-// //           </View>
-// //         </View>
+          </View>
+        </View>
 
-// //         <View style={styles.containerInputBox}>
-// //           <Text style={styles.text}>PASSWORD</Text>
-// //           <View style={styles.textInputView}>
-// //             <TextInput
-// //               style={styles.textInputText}
-// //               secureTextEntry={!showPassword}
-// //             />
-// //             <MaterialCommunityIcons
-// //               name={showPassword ? "eye-off" : "eye"}
-// //               size={24}
-// //               color="#aaa"
-// //               style={styles.icon}
-// //               onPress={toggleShowPassword}
-// //             />
-// //           </View>
-// //         </View>
+        <View style={styles.containerInputBox}>
+          <Text style={styles.text}>PASSWORD</Text>
+          <View style={styles.textInputView}>
+            <TextInput
+              style={styles.textInputText}
+              secureTextEntry={!showPassword}
+            />
+            <MaterialCommunityIcons
+              name={showPassword ? "eye-off" : "eye"}
+              size={24}
+              color="#aaa"
+              // style={styles.icon}
+              onPress={toggleShowPassword}
+            />
+          </View>
+        </View>
 
-// //         <Text style={styles.buttonText}>FORGOT YOUR PASSWORD?</Text>
-// //         <PrimaryButton>
-// //           <Text>LOG IN</Text>
-// //         </PrimaryButton>
-// //       </View>
+        <Text style={styles.buttonText}>FORGOT YOUR PASSWORD?</Text>
+        <PrimaryButton
+        onPress={() => console.log('Login btn pressed')}
+        >
+          <Text>LOG IN</Text>
+        </PrimaryButton>
+      </View>
 
-// //       <View style={styles.createAccountContainer}>
-// //         <Text style={styles.infoText}>Don't have an account? Sign up!</Text>
-// //         <PrimaryButton>
-// //           <Text>CREATE ACCOUNT</Text>
-// //         </PrimaryButton>
-// //       </View>
+      <View style={styles.createAccountContainer}>
+        <Text style={styles.infoText}>Don't have an account? Sign up!</Text>
+        <PrimaryButton
+        onPress={() => console.log('Create Account? btn pressed')}
+        >
+          <Text>CREATE ACCOUNT</Text>
+        </PrimaryButton>
+      </View>
 
-// //       <View style={styles.helpContainer}>
-// //         <Text style={styles.buttonText}>SETUP INSTRUCTIONS</Text>
-// //         <Text style={styles.buttonText}>CAN'T LOGIN? EMAIL SUPPORT</Text>
-// //       </View>
-// //     </View>
+      <View style={styles.helpContainer}>
+        <Text style={styles.buttonText}>SETUP INSTRUCTIONS</Text>
+        <Text style={styles.buttonText}>CAN'T LOGIN? EMAIL SUPPORT</Text>
+      </View>
+    </View>
         
-// //       </SafeAreaView>
-// // </LinearGradient>
+      </SafeAreaView>
+</LinearGradient>
     
-//   );
+  );
 }
+
+export default StartScreen;
 
 const styles = StyleSheet.create({
   rootScreen: {
@@ -139,7 +147,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   infoText: {
-    color: GlobalStyles.colors.accent500,
+    color: GlobalStyles.colors.primary500,
     fontSize: 10,
     fontWeight: "bold",
     marginBottom: 5,
@@ -166,6 +174,4 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
-
-export default StartScreen;
 

@@ -9,12 +9,22 @@ import StartSession from './src/screens/StartSession';
 import Settings from './src/screens/Settings'
 import SessionDetails from './src/screens/SessionDataScreens/SessionDetails';
 
+import StartScreen from './src/screens/LoginFlow/StartScreen';
+
+import ForgotPasswordScreen from './src/screens/LoginFlow/ForgotPasswordScreen';
+
+
 const Stack = createNativeStackNavigator(); //Navigator object, which contains all the screens in our app
 const BottomTabs = createBottomTabNavigator(); 
 
 function TrainingOverview(){
   return(
     <BottomTabs.Navigator>
+      <BottomTabs.Screen name="Start Screen" component={StartScreen} 
+      options={{
+        headerShown: false
+      }}
+      />
       <BottomTabs.Screen name="Sessions Overview" component={SessionsOverview}/>
       <BottomTabs.Screen name="Start Session" component={StartSession}/>
       <BottomTabs.Screen name="Settings" component={Settings}/>
