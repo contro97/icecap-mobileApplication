@@ -20,11 +20,6 @@ const BottomTabs = createBottomTabNavigator();
 function TrainingOverview(){
   return(
     <BottomTabs.Navigator>
-      <BottomTabs.Screen name="Start Screen" component={StartScreen} 
-      options={{
-        headerShown: false
-      }}
-      />
       <BottomTabs.Screen name="Sessions Overview" component={SessionsOverview}/>
       <BottomTabs.Screen name="Start Session" component={StartSession}/>
       <BottomTabs.Screen name="Settings" component={Settings}/>
@@ -38,7 +33,13 @@ export default function App() {
     <>
     <StatusBar style='dark'/>
     <NavigationContainer>
-    <Stack.Navigator initialRouteName="Summary">        
+  <Stack.Navigator initialRouteName="Sessions Overview">
+        {/* <Stack.Screen
+        name="Start Screen"
+        component={StartScreen}
+        options={{headerShown:false}}
+        /> */}
+        
         <Stack.Screen
          name="Training" 
          component={TrainingOverview}
