@@ -13,9 +13,11 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useState } from "react";
 import {LinearGradient} from 'expo-linear-gradient';
 
+import { useNavigation } from "@react-navigation/native";
 
 
-export function StartScreen( navigation: any ) {
+
+export function StartScreen(  ) {
   // State variable to hold the password
   const [password, setPassword] = useState("");
 
@@ -26,6 +28,8 @@ export function StartScreen( navigation: any ) {
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
+
+  const navigation : any = useNavigation(); // change type to any to avoid error
 
   return (
     <LinearGradient
@@ -69,7 +73,7 @@ export function StartScreen( navigation: any ) {
 
         <Text style={styles.buttonText}>FORGOT YOUR PASSWORD?</Text>
         <PrimaryButton
-        onPress={() => console.log('Login btn pressed')}
+        onPress={() => navigation.navigate('Sessions Overview')}
         >
           <Text>LOG IN</Text>
         </PrimaryButton>
