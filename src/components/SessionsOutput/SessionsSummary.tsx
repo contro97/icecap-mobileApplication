@@ -25,7 +25,6 @@ function SessionsSummary({ sessions, sessionsPeriod } : {sessions: SessionType[]
       <Text>{sessionsPeriod}</Text>
       <Text>Practice Time: {practiceTimeSum} minutes</Text>
       <Text>Total Shots: {shotSum}</Text>
-      <Text> Test </Text>
     </View>
   );
 }
