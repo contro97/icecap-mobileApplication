@@ -26,9 +26,11 @@ function TrainingOverview() {
       <BottomTabs.Screen
         name="Sessions Overview"
         component={SessionsOverview}
+        
         options={{
           title: "Session History",
           tabBarLabel: "Data",
+          headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <AntDesign name="barschart" size={size} color={color} />
           ),

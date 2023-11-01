@@ -27,7 +27,8 @@ function SessionItem(session: SessionType ) {
           </View>
           <View style={styles.descriptionContainer}>
             <Text style={[styles.textBase, styles.description]}>{session.activity}</Text>
-            <Text style={[styles.textBase, styles.dateText]}>{session.starttime}</Text>
+            <Text style={[styles.textBase, styles.dateText]}>{session.starttime.substring(10, -1)}</Text>
+            <Text style={[styles.textBase, styles.dateText]}>{session.endtime.substring(11,15)}{session.endtime.substring(18,22)}</Text>
           </View>
         </View>
 

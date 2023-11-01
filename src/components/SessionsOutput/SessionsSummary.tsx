@@ -1,32 +1,69 @@
-import { View, Text } from "react-native";
+import { View, Text, FlatList, StyleSheet } from "react-native";
 import { SessionType } from "src/types/SessionType";
 import SessionData from "../../components/SessionsOutput/SessionData";
+import SessionItem from '../../components/SessionsOutput/SessionItem'
 
-function SessionsSummary({ sessions, sessionsPeriod } : {sessions: SessionType[], sessionsPeriod: string})  {
-  const shotSum = sessions.reduce((sum: any, session: any ) => {
+import {
+  VictoryBar,
+  VictoryLine,
+  VictoryChart,
+  VictoryAxis,
+  VictoryTheme,
+} from "victory-native";
+
+function SessionsSummary({
+  sessions,
+  sessionsPeriod,
+}: {
+  sessions: SessionType[];
+  sessionsPeriod: string;
+}) {
+  const shotSum = sessions.reduce((sum: any, session: any) => {
     return sum + session.totalshots;
   }, 0);
 
-  const practiceTimeSum = sessions.reduce((sum : any, session : any) => {
+  const practiceTimeSum = sessions.reduce((sum: any, session: any) => {
     return sum + session.sessiontime;
   }, 0);
 
-  const rightHandTotal = sessions.reduce((sum : any, session : any) => { 
+  const rightHandTotal = sessions.reduce((sum: any, session: any) => {
     return sum + session.shotsright;
   }, 0);
 
-  const leftHandTotal = sessions.reduce((sum : any, session : any) => { 
+  const leftHandTotal = sessions.reduce((sum: any, session: any) => {
     return sum + session.shotsleft;
   }, 0);
 
+  function renderSessionItem(itemData: { item: SessionType }){ // use SessionItemType instead of any
+    return <SessionItem {...itemData.item} />
+}
 
   return (
-    <View>
-      <Text>{sessionsPeriod}</Text>
-      <Text>Practice Time: {practiceTimeSum} minutes</Text>
-      <Text>Total Shots: {shotSum}</Text>
-    </View>
+    
+      <VictoryChart minDomain={{ y: 0 }}>
+        <VictoryLine
+          data={[
+            { x: "mon", y: "110" },
+            { x: "tues", y: "20", },
+            { x: "wed", y: "30", },
+            { x: "thu", y: "40", },
+            { x: "fri", y: "110", },
+          ]}
+        />
+      </VictoryChart>
   );
 }
 
 export default SessionsSummary;
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 10,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+});
