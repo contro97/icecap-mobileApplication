@@ -9,6 +9,7 @@ import {
   VictoryChart,
   VictoryAxis,
   VictoryTheme,
+  VictoryVoronoiContainer,
 } from "victory-native";
 
 function SessionsSummary({
@@ -39,18 +40,35 @@ function SessionsSummary({
 }
 
   return (
+    <>
+    <View style={styles.container}>
+      <Text>Total Shots: {shotSum}</Text>
+      <Text>Practice Time: {practiceTimeSum}</Text>
+    </View>
     
       <VictoryChart minDomain={{ y: 0 }}>
         <VictoryLine
+        style={{
+          data: { stroke: "#c43a31" },
+          parent: { border: "1px solid #ccc"}
+        }}
           data={[
-            { x: "mon", y: "110" },
-            { x: "tues", y: "20", },
-            { x: "wed", y: "30", },
-            { x: "thu", y: "40", },
-            { x: "fri", y: "110", },
+            { x: 'mon', y: 2 },
+            { x: 'tue', y: 3 },
+            { x: 'wed', y: 16 },
+            { x: 'thu', y: 4 },
+            { x: 'fri', y: 7 }
           ]}
+          animate={{
+            duration: 2000,
+            onLoad: { duration: 1000 }
+          }}
+          containerComponent={<VictoryVoronoiContainer/>}    
+
+
         />
       </VictoryChart>
+      </>
   );
 }
 
