@@ -1,7 +1,7 @@
 import { View, Text, FlatList, StyleSheet } from "react-native";
 import { SessionType } from "src/types/SessionType";
 import SessionData from "../../components/SessionsOutput/SessionData";
-import SessionItem from '../../components/SessionsOutput/SessionItem'
+import SessionItem from "../../components/SessionsOutput/SessionItem";
 
 import {
   VictoryBar,
@@ -35,40 +35,48 @@ function SessionsSummary({
     return sum + session.shotsleft;
   }, 0);
 
-  function renderSessionItem(itemData: { item: SessionType }){ // use SessionItemType instead of any
-    return <SessionItem {...itemData.item} />
-}
+  function renderSessionItem(itemData: { item: SessionType }) {
+    // use SessionItemType instead of any
+    return <SessionItem {...itemData.item} />;
+  }
+
+  const chartData = [
+    { x: 'Lefty', y: 4 },
+    { x: 'Righty', y: 6 },
+  ];
+  
+  const numberOfColumns = chartData.length;
+  const columnWidth = 0.25; // 50% of the space
+  
+  // Calculate the min and max values for the x-axis
+  const xMin = -columnWidth / 2;
+  const xMax = numberOfColumns - 1 + columnWidth / 2;
 
   return (
     <>
-    <View style={styles.container}>
-      <Text>Total Shots: {shotSum}</Text>
-      <Text>Practice Time: {practiceTimeSum}</Text>
-    </View>
-    
-      <VictoryChart minDomain={{ y: 0 }}>
-        <VictoryLine
-        style={{
-          data: { stroke: "#c43a31" },
-          parent: { border: "1px solid #ccc"}
-        }}
-          data={[
-            { x: 'mon', y: 2 },
-            { x: 'tue', y: 3 },
-            { x: 'wed', y: 16 },
-            { x: 'thu', y: 4 },
-            { x: 'fri', y: 7 }
-          ]}
-          animate={{
-            duration: 2000,
-            onLoad: { duration: 1000 }
-          }}
-          containerComponent={<VictoryVoronoiContainer/>}    
+      <View style={styles.container}>
+        <Text>Total Shots: {shotSum}</Text>
+        <Text>Practice Time: {practiceTimeSum}</Text>
 
-
-        />
-      </VictoryChart>
-      </>
+        <VictoryChart minDomain={{ y: 0 }}>
+          <VictoryBar
+            style={{ data: { fill: "#c43a31" } }}
+            alignment="start"
+            data={chartData}
+            animate={{
+              duration: 1000,
+              onLoad: { duration: 1000 },            
+            }}      
+            containerComponent={<VictoryVoronoiContainer />}
+            labels={({ datum }: { datum: { x: string; y: number } }) => datum.y}
+            domain={{
+              x: [xMin, xMax],
+              y: [0, 10], // Adjust this based on your data
+            }}
+          />
+        </VictoryChart>
+      </View>
+    </>
   );
 }
 
