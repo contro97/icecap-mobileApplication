@@ -10,7 +10,7 @@ function SessionsSummary({
   sessionsPeriod,
 }: {
   sessions: SessionType[];
-  sessionsPeriod: string;
+  sessionsPeriod: string[];
 }) {
   const shotSum = sessions.reduce((sum: any, session: any) => {
     return sum + session.totalshots;
@@ -37,7 +37,7 @@ function SessionsSummary({
     <>
       <View style={styles.periodContainer}>
         <MaterialCommunityIcons name="arrow-left-circle" size={24} color="black" />
-        <Text style={styles.title}>{sessionsPeriod}</Text>
+        <Text style={styles.title}>{sessionsPeriod[0]}</Text>
         <MaterialCommunityIcons name="arrow-right-circle" size={24} color="black" />
       </View>
       <View style={styles.container}>
