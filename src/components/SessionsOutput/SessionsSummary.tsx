@@ -3,6 +3,8 @@ import { SessionType } from "src/types/SessionType";
 import SessionData from "../../components/SessionsOutput/SessionData";
 import SessionItem from "../../components/SessionsOutput/SessionItem";
 
+import DateRangeComponent from "../DateRange";
+
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 function SessionsSummary({
@@ -35,11 +37,7 @@ function SessionsSummary({
 
   return (
     <>
-      <View style={styles.periodContainer}>
-        <MaterialCommunityIcons name="arrow-left-circle" size={24} color="black" />
-        <Text style={styles.title}>{sessionsPeriod[0]}</Text>
-        <MaterialCommunityIcons name="arrow-right-circle" size={24} color="black" />
-      </View>
+      <DateRangeComponent />
       <View style={styles.container}>
         <Text>Total Shots: {shotSum}</Text>
         <Text>Practice Time: {practiceTimeSum}</Text>
@@ -55,15 +53,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     padding: 10,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  periodContainer: {
-    alignItems: "center",
-    flexDirection: "row",
-    paddingHorizontal: 80,
-    justifyContent: "space-between",
   },
 });
