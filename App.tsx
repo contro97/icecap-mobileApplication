@@ -79,9 +79,7 @@ export default function App() {
             component={TrainingOverview}
             options={{
               headerShown: false,
-              // tabBarIcon: ({ color, size }) => (
-              //   <Ionicons name="hourglass" size={size} color={color} />
-              // ),
+              
             }}
           />
           <Stack.Screen
