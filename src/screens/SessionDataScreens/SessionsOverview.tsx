@@ -6,36 +6,50 @@ import { SessionType } from "src/types/SessionType";
 import { SafeAreaView, StyleSheet } from "react-native";
 import { DUMMY_SESSIONS } from "../../data/data";
 
+import DateRangeComponent from "../../components/DateRange";
+
 function SessionsOverview(sessionData: SessionType[]) {
-  const inputDateString = DUMMY_SESSIONS[0].endtime;
-  const dateObject = moment(inputDateString, "MM/DD/YYYY hh:mm:ss A").toDate();
 
-  // Get the current date/time
-  const currentDate = new Date();
+  const filteredSessions = DUMMY_SESSIONS.filter((session) => {
+    const sessionDateObject = moment(
+      session.endtime,
+      "MM/DD/YYYY hh:mm:ss A"
+    ).toDate();
 
-  // Calculate the date 7 days ago
-  const last7DaysDate = new Date();
-  last7DaysDate.setDate(currentDate.getDate() - 7);
+    // Get the current date/time
+    const currentDate = new Date();
 
-  // Calculate the date 30 days ago
-  const last30DaysDate = new Date();
-  last30DaysDate.setDate(currentDate.getDate() - 30);
+    // Calculate the date 7 days ago
+    const last7DaysDate = new Date();
+    last7DaysDate.setDate(currentDate.getDate() - 7);
 
-  // Filter based on different time ranges
-  const isWithinLast7Days = dateObject >= last7DaysDate && dateObject <= currentDate;
-  const isWithinLast30Days = dateObject >= last30DaysDate && dateObject <= currentDate;
+    // Calculate the date 30 days ago
+    const last30DaysDate = new Date();
+    last30DaysDate.setDate(currentDate.getDate() - 30);
 
-  console.log(`Input Date: ${inputDateString}`);
-  console.log(`Date 7 Days Ago: ${last7DaysDate}`);
-  console.log(`Is within Last 7 Days: ${isWithinLast7Days}`);
-  console.log(`Is within Last 30 Days: ${isWithinLast30Days}`);
-  console.log(`Is All Time: true`);
+    // Calculate the date 30 days ago
+    const last90DaysDate = new Date();
+    last30DaysDate.setDate(currentDate.getDate() - 90);
 
+    // Filter based on different time ranges
+    const isWithinLast7Days =
+      sessionDateObject >= last7DaysDate && sessionDateObject <= currentDate;
+    const isWithinLast30Days =
+      sessionDateObject >= last30DaysDate && sessionDateObject <= currentDate;
+
+    const isWithinLast90Days =
+    sessionDateObject >= last90DaysDate && sessionDateObject <= currentDate;
+
+    const allTime = sessionDateObject <= currentDate;
+
+    return isWithinLast30Days;
+  });
 
   return (
     <SafeAreaView style={styles.container}>
+      <DateRangeComponent />
       <SessionsOutput
-        sessions={DUMMY_SESSIONS}
+        sessions={filteredSessions}
         fallbackText="No sessions yet."
       />
     </SafeAreaView>

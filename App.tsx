@@ -6,16 +6,20 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
 
 import SessionsOverview from "./src/screens/SessionDataScreens/SessionsOverview";
 import StartSession from "./src/screens/StartSession";
 import Settings from "./src/screens/Settings";
 import SessionDetails from "./src/screens/SessionDataScreens/SessionDetails";
+import Store from "./src/screens/Store";
+import Library from "./src/screens/Library";
 
 import StartScreen from "./src/screens/LoginFlow/StartScreen";
 
 import ForgotPasswordScreen from "./src/screens/LoginFlow/ForgotPasswordScreen";
 import {GlobalStyles} from './src/constants/Colors'
+
 
 const Stack = createNativeStackNavigator(); //Navigator object, which contains all the screens in our app
 const BottomTabs = createBottomTabNavigator();
@@ -29,10 +33,19 @@ function TrainingOverview() {
         
         options={{
           title: "Session History",
-          tabBarLabel: "Data",
+          tabBarLabel: "HOME",
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
-            <AntDesign name="barschart" size={size} color={color} />
+            <AntDesign name="home" size={size} color={color} />
+          ),
+        }}
+      />
+      <BottomTabs.Screen
+        name="LIBRARY"
+        component={Library}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name="fitness-center" size={size} color={color} />
           ),
         }}
       />
@@ -41,14 +54,24 @@ function TrainingOverview() {
         component={StartSession}
         options={{
           title: "Analyze Shots",
-          tabBarLabel: "Sync",
+          tabBarLabel: "PLAY",
           tabBarIcon: ({ color, size }) => (
             <AntDesign name="caretright" size={size} color={color} />
           ),
         }}
       />
+      
       <BottomTabs.Screen
-        name="Settings"
+        name="STORE"
+        component={Store}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <AntDesign name="shoppingcart" size={size} color={color} />
+          ),
+        }}
+      />
+      <BottomTabs.Screen
+        name="SETTINGS"
         component={Settings}
         options={{
           tabBarIcon: ({ color, size }) => (

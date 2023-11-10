@@ -3,7 +3,6 @@ import { SessionType } from "src/types/SessionType";
 import SessionData from "../../components/SessionsOutput/SessionData";
 import SessionItem from "../../components/SessionsOutput/SessionItem";
 
-import DateRangeComponent from "../DateRange";
 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
@@ -35,7 +34,6 @@ function SessionsSummary({ sessions }: { sessions: SessionType[] }) {
         <Text>Total Shots: {shotSum}</Text>
         <Text>Practice Time: {practiceTimeSum}</Text>
       </View>
-      <DateRangeComponent />
     </>
   );
 }

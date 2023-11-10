@@ -7,7 +7,7 @@ import { SessionType } from "src/types/SessionType";
 import { GlobalStyles } from "../../constants/Colors";
 
 function SessionsOutput({sessions, fallbackText} : {sessions: SessionType[], fallbackText: string}) {
-  let content = <Text>{fallbackText}</Text>;
+  let content = <Text style={styles.noDataText}>{fallbackText}</Text>;
   
   
     if (sessions.length > 0) {
@@ -32,4 +32,8 @@ const styles = StyleSheet.create({
     paddingBottom: 0,
     backgroundColor: GlobalStyles.colors.primary50
   },
+  noDataText: {
+    textAlign: "center",
+    fontSize: 18,
+  }
 })
