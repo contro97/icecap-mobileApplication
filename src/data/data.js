@@ -1,7 +1,7 @@
 export const DUMMY_SESSIONS = [
   {
     activity: "Shooting",
-    endtime: "11/29/2022 12:25:33 PM",
+    endtime: "11/05/2023 12:25:33 PM",
     sessionid: "3lZCk4XzsXT74g9u77kAPPrDrRv1.1",
     sessiontime: 10,
     shotsleft: 29,
@@ -13,7 +13,7 @@ export const DUMMY_SESSIONS = [
     shotsunderhandleft: 5,
     shotsunderhandright: 20,
     sport: "Lacrosse",
-    starttime: "11/29/2022 7:15:32 PM",
+    starttime: "11/05/2023 7:15:32 PM",
     topspeed: "97.41",
     totalshots: 87,
     url: "https://firebasestorage.googleapis.com/v0/b/icecap-sports-app-12-20.appspot.com/o/Users%2F3lZCk4XzsXT74g9u77kAPPrDrRv1%2FLacrosse%2FTrainingData%2FSAL.csv?alt=media&token=d90edb28-6da0-4c5b-9bcf-bc790fc9ab81",
@@ -40,7 +40,7 @@ export const DUMMY_SESSIONS = [
   {
     activity: "Shooting",
     endtime: "11/20/2022 2:02:46 PM",
-    sessionid: "3lZC4XzsXT7dscdsacs4g9uPPrrRv1.1",
+    sessionid: "3lZC4XzsXT7scdsacs4g9uPPrrRv1.1",
     sessiontime: 10,
     shotsleft: 3,
     shotsoverhandleft: 1,
@@ -59,7 +59,7 @@ export const DUMMY_SESSIONS = [
   {
     activity: "Shooting",
     endtime: "11/19/2022 7:25:33 PM",
-    sessionid: "3lZCzscdcd74g9uewdwPPrDrRv1.1",
+    sessionid: "3lZCuewdwPPrDrRv1.1",
     sessiontime: 10,
     shotsleft: 1,
     shotsoverhandleft: 1,
@@ -78,7 +78,7 @@ export const DUMMY_SESSIONS = [
   {
     activity: "Shooting",
     endtime: "11/15/2022 7:25:33 PM",
-    sessionid: "3lZCzT74PrDrRv1.1",
+    sessionid: "3lZCzT74PrD4t43t43rgwesrgerrRv1.1",
     sessiontime: 10,
     shotsleft: 1,
     shotsoverhandleft: 1,
@@ -97,7 +97,7 @@ export const DUMMY_SESSIONS = [
   {
     activity: "Shooting",
     endtime: "11/28/2022 7:25:33 PM",
-    sessionid: "3lZCk4XzsXT4g9u77kAPPrDrRv1.1",
+    sessionid: "3lZCk4XzsXT4twrtwg9u77kAPPrDrRv1.1",
     sessiontime: 10,
     shotsleft: 29,
     shotsoverhandleft: 12,

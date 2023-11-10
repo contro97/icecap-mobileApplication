@@ -4,7 +4,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const DateRangeComponent = () => {
   const dateRanges = ["Last 7 Days", "Last 30 Days", "Last 90 Days", "All Time"];
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(3);
 
   const handlePrevClick = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + dateRanges.length) % dateRanges.length);
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 16,
+    paddingHorizontal: 24,
     marginTop: 16,
   },
   button: {
@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
   dotsContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
+    padding: 8,  
   },
   dot: {
     width: 8,

@@ -7,13 +7,7 @@ import DateRangeComponent from "../DateRange";
 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-function SessionsSummary({
-  sessions,
-  sessionsPeriod,
-}: {
-  sessions: SessionType[];
-  sessionsPeriod: string[];
-}) {
+function SessionsSummary({ sessions }: { sessions: SessionType[] }) {
   const shotSum = sessions.reduce((sum: any, session: any) => {
     return sum + session.totalshots;
   }, 0);
@@ -37,11 +31,11 @@ function SessionsSummary({
 
   return (
     <>
-      <DateRangeComponent />
       <View style={styles.container}>
         <Text>Total Shots: {shotSum}</Text>
         <Text>Practice Time: {practiceTimeSum}</Text>
       </View>
+      <DateRangeComponent />
     </>
   );
 }
