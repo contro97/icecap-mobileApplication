@@ -8,8 +8,8 @@ import { DUMMY_SESSIONS } from "../../data/data";
 
 import DateRangeComponent from "../../components/DateRange";
 
-function SessionsOverview(sessionData: SessionType[]) {
 
+function SessionsOverview(sessionData: SessionType[]) {
   const filteredSessions = DUMMY_SESSIONS.filter((session) => {
     const sessionDateObject = moment(
       session.endtime,
@@ -38,16 +38,16 @@ function SessionsOverview(sessionData: SessionType[]) {
       sessionDateObject >= last30DaysDate && sessionDateObject <= currentDate;
 
     const isWithinLast90Days =
-    sessionDateObject >= last90DaysDate && sessionDateObject <= currentDate;
+      sessionDateObject >= last90DaysDate && sessionDateObject <= currentDate;
 
     const allTime = sessionDateObject <= currentDate;
 
-    return isWithinLast30Days;
+    return allTime;
   });
 
   return (
     <SafeAreaView style={styles.container}>
-      <DateRangeComponent />
+      <DateRangeComponent />      
       <SessionsOutput
         sessions={filteredSessions}
         fallbackText="No sessions yet."
