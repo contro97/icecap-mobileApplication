@@ -90,12 +90,7 @@ export default function App() {
     <>
       <StatusBar style="dark" />
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Sessions Overview">
-          {/* <Stack.Screen
-        name="Start Screen"
-        component={StartScreen}
-        options={{headerShown:false}}
-        /> */}
+        <Stack.Navigator initialRouteName="Sessions Overview">          
 
           <Stack.Screen
             name="Training"
@@ -109,9 +104,8 @@ export default function App() {
             name="Session Details"
             component={SessionDetails}
             options={{
-              presentation: "modal",
-              headerTintColor: GlobalStyles.colors.primary600,
-              
+              presentation: "modal",              
+              headerShown: false,
             }}
           />
         </Stack.Navigator>

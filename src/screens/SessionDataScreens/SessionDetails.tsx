@@ -6,11 +6,25 @@ import {
   VictoryPolarAxis,
 } from "victory-native";
 
+import { AntDesign } from "@expo/vector-icons";
+
+import {  GlobalStyles } from "../../constants/Colors";
+
 import SessionData from "../../components/SessionsOutput/SessionData";
 
 function SessionDetails({ route, navigation }: any) {
   return (
     <ScrollView>
+      <View style={styles.exitContainer}>
+        <AntDesign
+          name="close"
+          size={36}
+          color={GlobalStyles.colors.primary600}
+          onPress={() => {
+            navigation.goBack(); 
+          }}
+        />
+      </View>
       <View style={styles.statsItem}>
         <Text>{route.params?.session.activity} </Text>
         <Text>{route.params?.session.sessiontime}m</Text>
@@ -109,4 +123,10 @@ const styles = StyleSheet.create({
     borderBottomColor: "black",
     borderBottomWidth: 1,
   },
+  exitContainer: {
+    flexDirection: 'row', // To align items horizontally
+    justifyContent: 'flex-end', // Align items to the right
+    alignItems: 'center', // Align items vertically (if needed)
+    backgroundColor: "#f5fcff",
+  }
 });
