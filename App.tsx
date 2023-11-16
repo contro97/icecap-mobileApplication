@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, useNavigationContainerRef } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
@@ -25,8 +25,6 @@ const Stack = createNativeStackNavigator(); //Navigator object, which contains a
 const BottomTabs = createBottomTabNavigator();
 
 function TrainingOverview() {
-
-
   return (
     <BottomTabs.Navigator>
       <BottomTabs.Screen
@@ -87,10 +85,11 @@ function TrainingOverview() {
 
 
 export default function App() {
+  const navigationRef = useNavigationContainerRef();
   return (
     <>
       <StatusBar style="dark" />
-      <NavigationContainer>
+      <NavigationContainer  ref={navigationRef}>
         <Stack.Navigator initialRouteName="Sessions Overview">          
 
           <Stack.Screen
@@ -112,7 +111,8 @@ export default function App() {
                 name="close"
                 size={24}                
                 onPress={() => {
-                  console.log("close");                  
+                  console.log("close"); 
+                  navigationRef.navigate('Training');
                 }}
                 />),            
             }}              
