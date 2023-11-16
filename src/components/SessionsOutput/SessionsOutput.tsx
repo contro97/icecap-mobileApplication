@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ScrollView} from "react-native";
 
 import SessionsList from "./SessionsList";
 import SessionsSummary from "./SessionsSummary";
@@ -15,10 +15,12 @@ function SessionsOutput({sessions, fallbackText} : {sessions: SessionType[], fal
     }
 
   return (
-    <View style={styles.sessionsOutput}>
+    <ScrollView>
+      <View style={styles.sessionsOutput}>
       <SessionsSummary sessions={sessions} />
         {content}  
-    </View>
+      </View>    
+    </ScrollView>
   );
 }
 

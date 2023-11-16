@@ -16,7 +16,7 @@ function SessionsSummary({ sessions }: { sessions: SessionType[] }) {
     return sum + session.sessiontime;
   }, 0);
 
-  const rightHandTotal = sessions.reduce((sum: any, session: any) => {
+  const rightHandTotal = sessions.reduce((sum: any, session: SessionType ) => {
     return sum + session.shotsright;
   }, 0);
 
