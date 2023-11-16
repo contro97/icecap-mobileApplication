@@ -14,17 +14,7 @@ import SessionData from "../../components/SessionsOutput/SessionData";
 
 function SessionDetails({ route, navigation }: any) {
   return (
-    <ScrollView>
-      <View style={styles.exitContainer}>
-        <AntDesign
-          name="close"
-          size={36}
-          color={GlobalStyles.colors.primary600}
-          onPress={() => {
-            navigation.goBack(); 
-          }}
-        />
-      </View>
+    <ScrollView>       
       <View style={styles.statsItem}>
         <Text>{route.params?.session.activity} </Text>
         <Text>{route.params?.session.sessiontime}m</Text>

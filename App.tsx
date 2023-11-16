@@ -25,12 +25,13 @@ const Stack = createNativeStackNavigator(); //Navigator object, which contains a
 const BottomTabs = createBottomTabNavigator();
 
 function TrainingOverview() {
+
+
   return (
     <BottomTabs.Navigator>
       <BottomTabs.Screen
         name="Sessions Overview"
-        component={SessionsOverview}
-        
+        component={SessionsOverview}        
         options={{
           title: "Session History",
           tabBarLabel: "HOME",
@@ -105,8 +106,16 @@ export default function App() {
             component={SessionDetails}
             options={{
               presentation: "modal",              
-              headerShown: false,
-            }}
+              headerTitle: "Session Details",   
+              headerRight: () => (
+                <AntDesign
+                name="close"
+                size={24}                
+                onPress={() => {
+                  console.log("close");                  
+                }}
+                />),            
+            }}              
           />
         </Stack.Navigator>
       </NavigationContainer>
