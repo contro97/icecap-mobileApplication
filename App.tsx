@@ -82,6 +82,11 @@ function TrainingOverview() {
   );
 }
 
+function UnauthenticatedStack() {
+  
+}
+
+
 
 
 export default function App() {
@@ -110,12 +115,15 @@ export default function App() {
                 <AntDesign
                 name="close"
                 size={24}                
-                onPress={() => {
-                  console.log("close"); 
+                onPress={() => {                  
                   navigationRef.navigate('Training');
                 }}
                 />),            
             }}              
+          />
+          <Stack.Screen 
+            name = "Settings"
+            component = {Settings}
           />
         </Stack.Navigator>
       </NavigationContainer>
