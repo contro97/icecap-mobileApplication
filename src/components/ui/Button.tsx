@@ -4,11 +4,14 @@ import { GlobalStyles } from '../../constants/Colors';
 
 function Button({children, onPress}: {children: any, onPress: any}) {   
     return(
-        <Pressable>
-            <View>
-                <Text>{children}</Text>
-            </View>
-        </Pressable>
+        <Pressable
+        style={({ pressed }) => [styles.button, pressed && styles.pressed]}
+        onPress={onPress}
+      >
+        <View>
+          <Text style={styles.buttonText}>{children}</Text>
+        </View>
+      </Pressable>
     )
 }
 
