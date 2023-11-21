@@ -17,7 +17,7 @@ import { useNavigation } from "@react-navigation/native";
 
 
 
-export function StartScreen(  ) {
+function StartScreen(  ) {
   // State variable to hold the password
   const [password, setPassword] = useState("");
 

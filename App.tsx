@@ -24,109 +24,153 @@ import {GlobalStyles} from './src/constants/Colors'
 const Stack = createNativeStackNavigator(); //Navigator object, which contains all the screens in our app
 const BottomTabs = createBottomTabNavigator();
 
-function TrainingOverview() {
-  return (
-    <BottomTabs.Navigator>
-      <BottomTabs.Screen
-        name="Sessions Overview"
-        component={SessionsOverview}        
-        options={{
-          title: "Session History",
-          tabBarLabel: "HOME",
-          headerShown: false,
-          tabBarIcon: ({ color, size }) => (
-            <AntDesign name="home" size={size} color={color} />
-          ),
-        }}
-      />
-      <BottomTabs.Screen
-        name="LIBRARY"
-        component={Library}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="fitness-center" size={size} color={color} />
-          ),
-        }}
-      />
-      <BottomTabs.Screen
-        name="Start Session"
-        component={StartSession}
-        options={{
-          title: "Analyze Shots",
-          tabBarLabel: "PLAY",
-          tabBarIcon: ({ color, size }) => (
-            <AntDesign name="caretright" size={size} color={color} />
-          ),
-        }}
-      />
+// function TrainingOverview() {
+//   return (
+//     <BottomTabs.Navigator>
+//       <BottomTabs.Screen
+//         name="Sessions Overview"
+//         component={SessionsOverview}        
+//         options={{
+//           title: "Session History",
+//           tabBarLabel: "HOME",
+//           headerShown: false,
+//           tabBarIcon: ({ color, size }) => (
+//             <AntDesign name="home" size={size} color={color} />
+//           ),
+//         }}
+//       />
+//       <BottomTabs.Screen
+//         name="LIBRARY"
+//         component={Library}
+//         options={{
+//           tabBarIcon: ({ color, size }) => (
+//             <MaterialIcons name="fitness-center" size={size} color={color} />
+//           ),
+//         }}
+//       />
+//       <BottomTabs.Screen
+//         name="Start Session"
+//         component={StartSession}
+//         options={{
+//           title: "Analyze Shots",
+//           tabBarLabel: "PLAY",
+//           tabBarIcon: ({ color, size }) => (
+//             <AntDesign name="caretright" size={size} color={color} />
+//           ),
+//         }}
+//       />
       
-      <BottomTabs.Screen
-        name="STORE"
-        component={Store}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <AntDesign name="shoppingcart" size={size} color={color} />
-          ),
-        }}
-      />
-      <BottomTabs.Screen
-        name="SETTINGS"
-        component={Settings}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <AntDesign name="setting" size={size} color={color} />
-          ),
-        }}
-      />
-    </BottomTabs.Navigator>
+//       <BottomTabs.Screen
+//         name="STORE"
+//         component={Store}
+//         options={{
+//           tabBarIcon: ({ color, size }) => (
+//             <AntDesign name="shoppingcart" size={size} color={color} />
+//           ),
+//         }}
+//       />
+//       <BottomTabs.Screen
+//         name="SETTINGS"
+//         component={Settings}
+//         options={{
+//           tabBarIcon: ({ color, size }) => (
+//             <AntDesign name="setting" size={size} color={color} />
+//           ),
+//         }}
+//       />
+//     </BottomTabs.Navigator>
+//   );
+// }
+
+
+
+function AuthStack() {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: { backgroundColor: GlobalStyles.colors.primary500 },
+        headerTintColor: 'white',
+        contentStyle: { backgroundColor: GlobalStyles.colors.primary100 },
+      }}
+    >
+      <Stack.Screen name="Login" component={StartScreen} />
+      <Stack.Screen name="Signup" component={ForgotPasswordScreen} />
+    </Stack.Navigator>
   );
 }
 
-function UnauthenticatedStack() {
-  
+function AuthenticatedStack() {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: { backgroundColor: GlobalStyles.colors.primary500 },
+        headerTintColor: 'white',
+        contentStyle: { backgroundColor: GlobalStyles.colors.primary100 },
+      }}
+    >
+      <Stack.Screen name="Welcome" component={StartScreen} /> 
+    </Stack.Navigator>
+  );
 }
 
-
-
+function Navigation() {
+  return (
+    <NavigationContainer>
+      <AuthStack />
+    </NavigationContainer>
+  );
+}
 
 export default function App() {
-  const navigationRef = useNavigationContainerRef();
   return (
     <>
-      <StatusBar style="dark" />
-      <NavigationContainer  ref={navigationRef}>
-        <Stack.Navigator initialRouteName="Sessions Overview">          
+      <StatusBar style="light" />
 
-          <Stack.Screen
-            name="Training"
-            component={TrainingOverview}
-            options={{
-              headerShown: false,
-              
-            }}
-          />
-          <Stack.Screen
-            name="Session Details"
-            component={SessionDetails}
-            options={{
-              presentation: "modal",              
-              headerTitle: "Session Details",   
-              headerRight: () => (
-                <AntDesign
-                name="close"
-                size={24}                
-                onPress={() => {                  
-                  navigationRef.navigate('Training');
-                }}
-                />),            
-            }}              
-          />
-          <Stack.Screen 
-            name = "Settings"
-            component = {Settings}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <Navigation />
     </>
   );
 }
+
+
+
+// export default function App() {
+//   const navigationRef = useNavigationContainerRef();
+//   return (
+//     <>
+//       <StatusBar style="dark" />
+//       <NavigationContainer  ref={navigationRef}>
+//         <Stack.Navigator initialRouteName="Sessions Overview">          
+
+//           <Stack.Screen
+//             name="Training"
+//             component={TrainingOverview}
+//             options={{
+//               headerShown: false,
+              
+//             }}
+//           />
+//           <Stack.Screen
+//             name="Session Details"
+//             component={SessionDetails}
+//             options={{
+//               presentation: "modal",              
+//               headerTitle: "Session Details",   
+//               headerRight: () => (
+//                 <AntDesign
+//                 name="close"
+//                 size={24}                
+//                 onPress={() => {                  
+//                   navigationRef.navigate('Training');
+//                 }}
+//                 />),            
+//             }}              
+//           />
+//           <Stack.Screen 
+//             name = "Settings"
+//             component = {Settings}
+//           />
+//         </Stack.Navigator>
+//       </NavigationContainer>
+//     </>
+//   );
+// }
