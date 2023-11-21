@@ -47,14 +47,14 @@ function StartScreen(  ) {
         </View>
         <AuthContent isLogin={true} onAuthenticate={false}/>
     
-      {/* <View style={styles.loginFieldContainer}>
+      {/* <View style={styles.loginFieldContainer}> 
         <View style={styles.containerInputBox}>
           <Text style={styles.text}>EMAIL</Text>
           <View style={styles.textInputView}>
             <TextInput style={styles.textInputText} />
             
           </View>
-        </View>
+        </View> 
 
         <View style={styles.containerInputBox}>
           <Text style={styles.text}>PASSWORD</Text>
@@ -94,7 +94,7 @@ function StartScreen(  ) {
         <Text style={styles.buttonText}>SETUP INSTRUCTIONS</Text>
         <Text style={styles.buttonText}>CAN'T LOGIN? EMAIL SUPPORT</Text>
       </View>
-    </View> */}
+    </View>  */}
         
       </SafeAreaView>
 </LinearGradient>

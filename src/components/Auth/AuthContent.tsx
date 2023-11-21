@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Alert, StyleSheet, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import PrimaryButton from "../PrimaryButton";
+import Button from '../ui/Button'
 import AuthForm from "./AuthForm";
 import { GlobalStyles } from "../../constants/Colors";
 
@@ -66,9 +66,9 @@ function AuthContent({
             credentialsInvalid={credentialsInvalid}
         />
         <View style={styles.buttons}>
-            <PrimaryButton onPress={switchAuthModeHandler}>
+            <Button onPress={switchAuthModeHandler}>
                 {isLogin ? "Switch to Signup" : "Switch to Login"}
-            </PrimaryButton>    
+            </Button>    
         </View>
 
     </View>
