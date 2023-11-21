@@ -45,7 +45,7 @@ function StartScreen(  ) {
             style={styles.logo}
           ></Image>
         </View>
-        <AuthContent isLogin={true} onAuthenticate={true}/>
+        <AuthContent isLogin={true} onAuthenticate={false}/>
     
       {/* <View style={styles.loginFieldContainer}>
         <View style={styles.containerInputBox}>

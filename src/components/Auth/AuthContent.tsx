@@ -24,11 +24,9 @@ function AuthContent({
 
   function switchAuthModeHandler() {
     if (isLogin) {
-    //   navigation.navigate("Signup");
-    console.log('switchAuthModeHandler')
+      navigation.navigate("Signup");
     } else {
-    //   navigation.navigate("Login");
-      console.log('switchAuthModeHandler')
+      navigation.navigate("Login");      
     }
   }
 

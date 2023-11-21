@@ -16,6 +16,7 @@ import Store from "./src/screens/Store";
 import Library from "./src/screens/Library";
 
 import StartScreen from "./src/screens/LoginFlow/StartScreen";
+import SignupScreen from "./src/screens/LoginFlow/SignupScreen";
 
 import ForgotPasswordScreen from "./src/screens/LoginFlow/ForgotPasswordScreen";
 import {GlobalStyles} from './src/constants/Colors'
@@ -94,7 +95,7 @@ function AuthStack() {
       }}
     >
       <Stack.Screen name="Login" component={StartScreen} />
-      <Stack.Screen name="Signup" component={ForgotPasswordScreen} />
+      <Stack.Screen name="Signup" component={SignupScreen} />
     </Stack.Navigator>
   );
 }
