@@ -6,14 +6,12 @@ import PrimaryButton from '../../components/PrimaryButton'
 import Input from './Input';
 
 function AuthForm(this: any, { isLogin, onSubmit, credentialsInvalid } : {isLogin: any, onSubmit: any, credentialsInvalid: any}) {
-  const [enteredEmail, setEnteredEmail] = useState('');
-  const [enteredConfirmEmail, setEnteredConfirmEmail] = useState('');
+  const [enteredEmail, setEnteredEmail] = useState('');  
   const [enteredPassword, setEnteredPassword] = useState('');
   const [enteredConfirmPassword, setEnteredConfirmPassword] = useState('');
 
   const {
     email: emailIsInvalid,
-    confirmEmail: emailsDontMatch,
     password: passwordIsInvalid,
     confirmPassword: passwordsDontMatch,
   } = credentialsInvalid;
@@ -22,10 +20,7 @@ function AuthForm(this: any, { isLogin, onSubmit, credentialsInvalid } : {isLogi
     switch (inputType) {
       case 'email':
         setEnteredEmail(enteredValue);
-        break;
-      case 'confirmEmail':
-        setEnteredConfirmEmail(enteredValue);
-        break;
+        break;      
       case 'password':
         setEnteredPassword(enteredValue);
         break;
@@ -38,7 +33,6 @@ function AuthForm(this: any, { isLogin, onSubmit, credentialsInvalid } : {isLogi
   function submitHandler() {
     onSubmit({
       email: enteredEmail,
-      confirmEmail: enteredConfirmEmail,
       password: enteredPassword,
       confirmPassword: enteredConfirmPassword,
     });
@@ -54,17 +48,7 @@ function AuthForm(this: any, { isLogin, onSubmit, credentialsInvalid } : {isLogi
           keyboardType="email-address"
           isInvalid={emailIsInvalid}
           secure={false}
-        />
-        {!isLogin && (
-          <Input
-            label="Confirm Email Address"
-            onUpdateValue={updateInputValueHandler.bind(this, 'confirmEmail')}
-            value={enteredConfirmEmail}
-            keyboardType="email-address"
-            isInvalid={emailsDontMatch}
-            secure={false}
-          />
-        )}
+        />        
         <Input
           label="Password"
           onUpdateValue={updateInputValueHandler.bind(this, 'password')}

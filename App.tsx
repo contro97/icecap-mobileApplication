@@ -109,7 +109,7 @@ function AuthenticatedStack() {
         contentStyle: { backgroundColor: GlobalStyles.colors.primary100 },
       }}
     >
-      <Stack.Screen name="Welcome" component={StartScreen} /> 
+      <Stack.Screen name="Sessions Overview" component={SessionsOverview} /> 
     </Stack.Navigator>
   );
 }
