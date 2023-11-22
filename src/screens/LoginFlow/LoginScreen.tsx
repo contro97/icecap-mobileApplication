@@ -5,7 +5,8 @@ import {
   StyleSheet,
   useWindowDimensions,
   TextInput,
-  SafeAreaView
+  SafeAreaView,
+  Alert
 } from "react-native";
 import { GlobalStyles } from "../../constants/Colors";
 import PrimaryButton from "../../components/PrimaryButton";
@@ -40,7 +41,14 @@ function StartScreen(  ) {
 
   async function loginHandler({ email, password }: { email: string, password: string }) {
     setIsAuthenticating(true);
-    await loginUser(email, password);
+    try{
+      await loginUser(email, password);
+    } catch (error) {
+      Alert.alert("Login Failed", 'Could not log you in. Please check your credentials and try again.');
+      console.log(error);
+      setIsAuthenticating(false);
+      return;
+    }
     setIsAuthenticating(false);
   }
 
