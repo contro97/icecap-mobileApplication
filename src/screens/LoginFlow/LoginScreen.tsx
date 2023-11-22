@@ -17,6 +17,9 @@ import { useNavigation } from "@react-navigation/native";
 
 import AuthContent from "../../components/Auth/AuthContent";
 
+import {loginUser}  from "../../../util/auth";
+import LoadingOverlay from "../../components/ui/LoadingOverlay";
+
 
 
 function StartScreen(  ) {
@@ -33,6 +36,17 @@ function StartScreen(  ) {
 
   const navigation : any = useNavigation(); // change type to any to avoid error
 
+  const [isAuthenticating, setIsAuthenticating] = useState(false);
+
+  async function loginHandler({ email, password }: { email: string, password: string }) {
+    setIsAuthenticating(true);
+    await loginUser(email, password);
+    setIsAuthenticating(false);
+  }
+
+  if(isAuthenticating) {
+    return <LoadingOverlay message="Logging In..."/>    
+  }
   return (
     <LinearGradient
       colors = {[GlobalStyles.colors.primary500, GlobalStyles.colors.primary200]}
@@ -45,7 +59,7 @@ function StartScreen(  ) {
             style={styles.logo}
           ></Image>
         </View>
-        <AuthContent isLogin={true} onAuthenticate={false}/>
+        <AuthContent isLogin={true} onAuthenticate={loginHandler}/>
     
       {/* <View style={styles.loginFieldContainer}> 
         <View style={styles.containerInputBox}>

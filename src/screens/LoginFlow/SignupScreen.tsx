@@ -1,14 +1,12 @@
-import AuthContent from '../../components/Auth/AuthContent';
 import {useState} from 'react';
 
+import AuthContent from '../../components/Auth/AuthContent';
 import LoadingOverlay from '../../components/ui/LoadingOverlay';
+import { createUser } from '../../../util/auth';
 
-import createUser from '../../../util/auth';
 
 function SignupScreen() {
   const[isAuthenticating, setIsAuthenticating] = useState(false); // initially false since unauthenticated on signup screen
-
-  useState();
 
   async function signupHandler({email, password} : {email: string, password: string}) {
     setIsAuthenticating(true);

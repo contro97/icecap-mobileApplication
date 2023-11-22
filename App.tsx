@@ -15,7 +15,7 @@ import SessionDetails from "./src/screens/SessionDataScreens/SessionDetails";
 import Store from "./src/screens/Store";
 import Library from "./src/screens/Library";
 
-import StartScreen from "./src/screens/LoginFlow/StartScreen";
+import StartScreen from "./src/screens/LoginFlow/LoginScreen";
 import SignupScreen from "./src/screens/LoginFlow/SignupScreen";
 
 import ForgotPasswordScreen from "./src/screens/LoginFlow/ForgotPasswordScreen";

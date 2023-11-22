@@ -1,2 +1,2 @@
-export { StartScreen } from './StartScreen'
+export { StartScreen } from './LoginScreen'
 export { ForgotPasswordScreen } from './ForgotPasswordScreen'
