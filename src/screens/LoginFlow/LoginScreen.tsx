@@ -23,7 +23,7 @@ import LoadingOverlay from "../../components/ui/LoadingOverlay";
 
 
 
-function StartScreen(  ) {
+function LoginScreen(  ) {
   // State variable to hold the password
   const [password, setPassword] = useState("");
 
@@ -124,7 +124,7 @@ function StartScreen(  ) {
   );
 }
 
-export default StartScreen;
+export default LoginScreen;
 
 const styles = StyleSheet.create({
   rootScreen: {

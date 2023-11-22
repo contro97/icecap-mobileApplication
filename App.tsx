@@ -1,6 +1,9 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import { NavigationContainer, useNavigationContainerRef } from "@react-navigation/native";
+import {
+  NavigationContainer,
+  useNavigationContainerRef,
+} from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
@@ -19,8 +22,9 @@ import StartScreen from "./src/screens/LoginFlow/LoginScreen";
 import SignupScreen from "./src/screens/LoginFlow/SignupScreen";
 
 import ForgotPasswordScreen from "./src/screens/LoginFlow/ForgotPasswordScreen";
-import {GlobalStyles} from './src/constants/Colors'
-
+import { GlobalStyles } from "./src/constants/Colors";
+import LoginForm from "src/components/LoginForm";
+import LoginScreen from "./src/screens/LoginFlow/LoginScreen";
 
 const Stack = createNativeStackNavigator(); //Navigator object, which contains all the screens in our app
 const BottomTabs = createBottomTabNavigator();
@@ -30,7 +34,7 @@ const BottomTabs = createBottomTabNavigator();
 //     <BottomTabs.Navigator>
 //       <BottomTabs.Screen
 //         name="Sessions Overview"
-//         component={SessionsOverview}        
+//         component={SessionsOverview}
 //         options={{
 //           title: "Session History",
 //           tabBarLabel: "HOME",
@@ -60,7 +64,7 @@ const BottomTabs = createBottomTabNavigator();
 //           ),
 //         }}
 //       />
-      
+
 //       <BottomTabs.Screen
 //         name="STORE"
 //         component={Store}
@@ -83,18 +87,22 @@ const BottomTabs = createBottomTabNavigator();
 //   );
 // }
 
-
-
 function AuthStack() {
   return (
     <Stack.Navigator
       screenOptions={{
         headerStyle: { backgroundColor: GlobalStyles.colors.primary500 },
-        headerTintColor: 'white',
+        headerTintColor: "white",
         contentStyle: { backgroundColor: GlobalStyles.colors.primary100 },
       }}
     >
-      <Stack.Screen name="Login" component={StartScreen} />
+      <Stack.Screen
+        name="Login"
+        component={LoginScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
       <Stack.Screen name="Signup" component={SignupScreen} />
     </Stack.Navigator>
   );
@@ -105,11 +113,17 @@ function AuthenticatedStack() {
     <Stack.Navigator
       screenOptions={{
         headerStyle: { backgroundColor: GlobalStyles.colors.primary500 },
-        headerTintColor: 'white',
+        headerTintColor: "white",
         contentStyle: { backgroundColor: GlobalStyles.colors.primary100 },
       }}
     >
-      <Stack.Screen name="Sessions Overview" component={SessionsOverview} /> 
+      <Stack.Screen
+        name="Sessions Overview"
+        component={SessionsOverview}
+        options={{
+          headerShown: false,
+        }}
+      />
     </Stack.Navigator>
   );
 }
@@ -132,41 +146,39 @@ export default function App() {
   );
 }
 
-
-
 // export default function App() {
 //   const navigationRef = useNavigationContainerRef();
 //   return (
 //     <>
 //       <StatusBar style="dark" />
 //       <NavigationContainer  ref={navigationRef}>
-//         <Stack.Navigator initialRouteName="Sessions Overview">          
+//         <Stack.Navigator initialRouteName="Sessions Overview">
 
 //           <Stack.Screen
 //             name="Training"
 //             component={TrainingOverview}
 //             options={{
 //               headerShown: false,
-              
+
 //             }}
 //           />
 //           <Stack.Screen
 //             name="Session Details"
 //             component={SessionDetails}
 //             options={{
-//               presentation: "modal",              
-//               headerTitle: "Session Details",   
+//               presentation: "modal",
+//               headerTitle: "Session Details",
 //               headerRight: () => (
 //                 <AntDesign
 //                 name="close"
-//                 size={24}                
-//                 onPress={() => {                  
+//                 size={24}
+//                 onPress={() => {
 //                   navigationRef.navigate('Training');
 //                 }}
-//                 />),            
-//             }}              
+//                 />),
+//             }}
 //           />
-//           <Stack.Screen 
+//           <Stack.Screen
 //             name = "Settings"
 //             component = {Settings}
 //           />
