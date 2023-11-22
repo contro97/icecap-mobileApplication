@@ -25,6 +25,7 @@ import ForgotPasswordScreen from "./src/screens/LoginFlow/ForgotPasswordScreen";
 import { GlobalStyles } from "./src/constants/Colors";
 import LoginForm from "src/components/LoginForm";
 import LoginScreen from "./src/screens/LoginFlow/LoginScreen";
+import AuthContextProvider from "./src/state/auth-context";
 
 const Stack = createNativeStackNavigator(); //Navigator object, which contains all the screens in our app
 const BottomTabs = createBottomTabNavigator();
@@ -130,9 +131,11 @@ function AuthenticatedStack() {
 
 function Navigation() {
   return (
-    <NavigationContainer>
-      <AuthStack />
-    </NavigationContainer>
+    <AuthContextProvider>
+      <NavigationContainer>
+        <AuthStack />
+      </NavigationContainer>
+    </AuthContextProvider>
   );
 }
 
