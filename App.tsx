@@ -54,27 +54,13 @@ function AuthStack() {
   );
 }
 
-function AuthenticatedStack() {
-  return (
-    <Stack.Navigator
-      screenOptions={{
-        headerStyle: { backgroundColor: GlobalStyles.colors.primary500 },
-        headerTintColor: "white",
-        contentStyle: { backgroundColor: GlobalStyles.colors.primary100 },
-      }}
-    >
-     <Stack.Screen name="Welcome" component={WelcomeScreen} />       
-    </Stack.Navigator>
-  );
-}
-
 function Navigation() {
   const authCtx = useContext(AuthContext);
 
   return (
     <NavigationContainer>
       {!authCtx.isAuthenticated && <AuthStack />}
-      {authCtx.isAuthenticated && <TrainingOverview />}
+      {authCtx.isAuthenticated && <AuthenticatedStack />}
     </NavigationContainer>
   );
 }
@@ -90,7 +76,7 @@ export default function App() {
   );
 }
 
-function TrainingOverview() {
+function AuthenticatedStack() {
   return (
     <BottomTabs.Navigator>
       <BottomTabs.Screen
@@ -148,7 +134,7 @@ function TrainingOverview() {
   );
 }
 
-// export default function App() {
+// function SessionDetail() {
 //   const navigationRef = useNavigationContainerRef();
 //   return (
 //     <>
