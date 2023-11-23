@@ -6,24 +6,23 @@ import {
   useWindowDimensions,
   TextInput,
   SafeAreaView,
-  Alert
+  Alert,
 } from "react-native";
 import { GlobalStyles } from "../../constants/Colors";
 import PrimaryButton from "../../components/PrimaryButton";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { useState } from "react";
-import {LinearGradient} from 'expo-linear-gradient';
+import { useState, useContext } from "react";
+import { LinearGradient } from "expo-linear-gradient";
 
 import { useNavigation } from "@react-navigation/native";
 
 import AuthContent from "../../components/Auth/AuthContent";
+import { AuthContext } from "../../state/auth-context";
 
-import {loginUser}  from "../../../util/auth";
+import { loginUser } from "../../../util/auth";
 import LoadingOverlay from "../../components/ui/LoadingOverlay";
 
-
-
-function LoginScreen(  ) {
+function LoginScreen() {
   // State variable to hold the password
   const [password, setPassword] = useState("");
 
@@ -35,29 +34,32 @@ function LoginScreen(  ) {
     setShowPassword(!showPassword);
   };
 
-  const navigation : any = useNavigation(); // change type to any to avoid error
 
   const [isAuthenticating, setIsAuthenticating] = useState(false);
 
-  async function loginHandler({ email, password }: { email: string, password: string }) {
+  const authCtx = useContext(AuthContext);
+
+  async function loginHandler({ email, password }: { email: string, password: string;}) {
     setIsAuthenticating(true);
-    try{
-      await loginUser(email, password);
+    try {
+      const token = await loginUser(email, password);
+      authCtx.authenticate(token);
     } catch (error) {
-      Alert.alert("Login Failed", 'Could not log you in. Please check your credentials and try again.');
+      Alert.alert(
+        "Login Failed",
+        "Could not log you in. Please check your credentials or try again later."
+      );
       console.log(error);
       setIsAuthenticating(false);
-      return;
     }
-    setIsAuthenticating(false);
   }
 
-  if(isAuthenticating) {
-    return <LoadingOverlay message="Logging In..."/>    
+  if (isAuthenticating) {
+    return <LoadingOverlay message="Logging In..." />;
   }
   return (
     <LinearGradient
-      colors = {[GlobalStyles.colors.primary500, GlobalStyles.colors.primary200]}
+      colors={[GlobalStyles.colors.primary500, GlobalStyles.colors.primary200]}
       style={styles.rootScreen}
     >
       <SafeAreaView style={styles.rootScreen}>
@@ -67,9 +69,9 @@ function LoginScreen(  ) {
             style={styles.logo}
           ></Image>
         </View>
-        <AuthContent isLogin={true} onAuthenticate={loginHandler}/>
-    
-      {/* <View style={styles.loginFieldContainer}> 
+        <AuthContent isLogin={true} onAuthenticate={loginHandler} />
+
+        {/* <View style={styles.loginFieldContainer}> 
         <View style={styles.containerInputBox}>
           <Text style={styles.text}>EMAIL</Text>
           <View style={styles.textInputView}>
@@ -117,10 +119,8 @@ function LoginScreen(  ) {
         <Text style={styles.buttonText}>CAN'T LOGIN? EMAIL SUPPORT</Text>
       </View>
     </View>  */}
-        
       </SafeAreaView>
-</LinearGradient>
-    
+    </LinearGradient>
   );
 }
 
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
     // backgroundColor: 'yellow',
   },
   imgContainer: {
-    flex: .5,
+    flex: 0.5,
     // backgroundColor: 'red',
     justifyContent: "center",
   },
@@ -202,4 +202,3 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
-

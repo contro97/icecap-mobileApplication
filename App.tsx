@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
+import { useContext } from "react";
 import {
   NavigationContainer,
   useNavigationContainerRef,
@@ -20,73 +21,17 @@ import Library from "./src/screens/Library";
 
 import StartScreen from "./src/screens/LoginFlow/LoginScreen";
 import SignupScreen from "./src/screens/LoginFlow/SignupScreen";
+import WelcomeScreen from "./src/screens/WelcomeScreen";
 
 import ForgotPasswordScreen from "./src/screens/LoginFlow/ForgotPasswordScreen";
 import { GlobalStyles } from "./src/constants/Colors";
 import LoginForm from "src/components/LoginForm";
 import LoginScreen from "./src/screens/LoginFlow/LoginScreen";
-import AuthContextProvider from "./src/state/auth-context";
+import AuthContextProvider, { AuthContext } from "./src/state/auth-context";
 
 const Stack = createNativeStackNavigator(); //Navigator object, which contains all the screens in our app
 const BottomTabs = createBottomTabNavigator();
 
-// function TrainingOverview() {
-//   return (
-//     <BottomTabs.Navigator>
-//       <BottomTabs.Screen
-//         name="Sessions Overview"
-//         component={SessionsOverview}
-//         options={{
-//           title: "Session History",
-//           tabBarLabel: "HOME",
-//           headerShown: false,
-//           tabBarIcon: ({ color, size }) => (
-//             <AntDesign name="home" size={size} color={color} />
-//           ),
-//         }}
-//       />
-//       <BottomTabs.Screen
-//         name="LIBRARY"
-//         component={Library}
-//         options={{
-//           tabBarIcon: ({ color, size }) => (
-//             <MaterialIcons name="fitness-center" size={size} color={color} />
-//           ),
-//         }}
-//       />
-//       <BottomTabs.Screen
-//         name="Start Session"
-//         component={StartSession}
-//         options={{
-//           title: "Analyze Shots",
-//           tabBarLabel: "PLAY",
-//           tabBarIcon: ({ color, size }) => (
-//             <AntDesign name="caretright" size={size} color={color} />
-//           ),
-//         }}
-//       />
-
-//       <BottomTabs.Screen
-//         name="STORE"
-//         component={Store}
-//         options={{
-//           tabBarIcon: ({ color, size }) => (
-//             <AntDesign name="shoppingcart" size={size} color={color} />
-//           ),
-//         }}
-//       />
-//       <BottomTabs.Screen
-//         name="SETTINGS"
-//         component={Settings}
-//         options={{
-//           tabBarIcon: ({ color, size }) => (
-//             <AntDesign name="setting" size={size} color={color} />
-//           ),
-//         }}
-//       />
-//     </BottomTabs.Navigator>
-//   );
-// }
 
 function AuthStack() {
   return (
@@ -118,24 +63,19 @@ function AuthenticatedStack() {
         contentStyle: { backgroundColor: GlobalStyles.colors.primary100 },
       }}
     >
-      <Stack.Screen
-        name="Sessions Overview"
-        component={SessionsOverview}
-        options={{
-          headerShown: false,
-        }}
-      />
+     <Stack.Screen name="Welcome" component={WelcomeScreen} />       
     </Stack.Navigator>
   );
 }
 
 function Navigation() {
+  const authCtx = useContext(AuthContext);
+
   return (
-    <AuthContextProvider>
-      <NavigationContainer>
-        <AuthStack />
-      </NavigationContainer>
-    </AuthContextProvider>
+    <NavigationContainer>
+      {!authCtx.isAuthenticated && <AuthStack />}
+      {authCtx.isAuthenticated && <TrainingOverview />}
+    </NavigationContainer>
   );
 }
 
@@ -143,9 +83,68 @@ export default function App() {
   return (
     <>
       <StatusBar style="light" />
-
-      <Navigation />
+      <AuthContextProvider>
+        <Navigation />
+      </AuthContextProvider>
     </>
+  );
+}
+
+function TrainingOverview() {
+  return (
+    <BottomTabs.Navigator>
+      <BottomTabs.Screen
+        name="Sessions Overview"
+        component={SessionsOverview}
+        options={{
+          title: "Session History",
+          tabBarLabel: "HOME",
+          headerShown: false,
+          tabBarIcon: ({ color, size }) => (
+            <AntDesign name="home" size={size} color={color} />
+          ),
+        }}
+      />
+      <BottomTabs.Screen
+        name="LIBRARY"
+        component={Library}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name="fitness-center" size={size} color={color} />
+          ),
+        }}
+      />
+      <BottomTabs.Screen
+        name="Start Session"
+        component={StartSession}
+        options={{
+          title: "Analyze Shots",
+          tabBarLabel: "PLAY",
+          tabBarIcon: ({ color, size }) => (
+            <AntDesign name="caretright" size={size} color={color} />
+          ),
+        }}
+      />
+
+      <BottomTabs.Screen
+        name="STORE"
+        component={Store}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <AntDesign name="shoppingcart" size={size} color={color} />
+          ),
+        }}
+      />
+      <BottomTabs.Screen
+        name="SETTINGS"
+        component={Settings}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <AntDesign name="setting" size={size} color={color} />
+          ),
+        }}
+      />
+    </BottomTabs.Navigator>
   );
 }
 
