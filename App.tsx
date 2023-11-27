@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { useContext } from "react";
 import {
   NavigationContainer,
+  useNavigation,
   useNavigationContainerRef,
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -139,7 +140,7 @@ function AuthenticatedStack() {
 }
 
 function SessionData() {
-  const navigationRef = useNavigationContainerRef();
+  const navigationRef = useNavigation();
   return (
     <>
 
@@ -155,7 +156,12 @@ function SessionData() {
           <Stack.Screen
             name = "Session Details"
             component = {SessionDetails}
-            options={{ presentation: 'modal' }} 
+            options={{ 
+              presentation: 'modal',
+              headerRight: () => (
+                <AntDesign name="close" size={24} color="black" onPress={navigationRef.goBack}/>
+              ),
+             }} 
           /> 
         </Stack.Navigator>
     </>
