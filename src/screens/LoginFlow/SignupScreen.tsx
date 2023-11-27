@@ -23,14 +23,13 @@ function SignupScreen() {
       setIsAuthenticating(false);
       return;    
     }
-    setIsAuthenticating(false);
   }
 
   if (isAuthenticating) {
     return <LoadingOverlay message="Creating Account..."/>
   }
 
-  return <AuthContent isLogin={false} onAuthenticate={signupHandler} />;
+  return <AuthContent isLogin={true} onAuthenticate={signupHandler} />;
 }
 
 export default SignupScreen;

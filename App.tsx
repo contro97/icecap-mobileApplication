@@ -60,7 +60,7 @@ function Navigation() {
   return (
     <NavigationContainer>
       {!authCtx.isAuthenticated && <AuthStack />}
-      {authCtx.isAuthenticated && <AuthenticatedStack />}
+      {authCtx.isAuthenticated && <AuthenticatedStack  /> }
     </NavigationContainer>
   );
 }
@@ -68,7 +68,7 @@ function Navigation() {
 export default function App() {
   return (
     <>
-      <StatusBar style="light" />
+      <StatusBar style="dark" />
       <AuthContextProvider>
         <Navigation />
       </AuthContextProvider>
@@ -77,11 +77,13 @@ export default function App() {
 }
 
 function AuthenticatedStack() {
+  const AuthCtx = useContext(AuthContext);
+
   return (
     <BottomTabs.Navigator>
       <BottomTabs.Screen
         name="Sessions Overview"
-        component={SessionsOverview}
+        component={SessionData}
         options={{
           title: "Session History",
           tabBarLabel: "HOME",
@@ -130,48 +132,31 @@ function AuthenticatedStack() {
           ),
         }}
       />
+      
     </BottomTabs.Navigator>
   );
 }
 
-// function SessionDetail() {
-//   const navigationRef = useNavigationContainerRef();
-//   return (
-//     <>
-//       <StatusBar style="dark" />
-//       <NavigationContainer  ref={navigationRef}>
-//         <Stack.Navigator initialRouteName="Sessions Overview">
+function SessionData() {
+  const navigationRef = useNavigationContainerRef();
+  return (
+    <>
 
-//           <Stack.Screen
-//             name="Training"
-//             component={TrainingOverview}
-//             options={{
-//               headerShown: false,
-
-//             }}
-//           />
-//           <Stack.Screen
-//             name="Session Details"
-//             component={SessionDetails}
-//             options={{
-//               presentation: "modal",
-//               headerTitle: "Session Details",
-//               headerRight: () => (
-//                 <AntDesign
-//                 name="close"
-//                 size={24}
-//                 onPress={() => {
-//                   navigationRef.navigate('Training');
-//                 }}
-//                 />),
-//             }}
-//           />
-//           <Stack.Screen
-//             name = "Settings"
-//             component = {Settings}
-//           />
-//         </Stack.Navigator>
-//       </NavigationContainer>
-//     </>
-//   );
-// }
+        <Stack.Navigator>
+          <Stack.Screen
+            name = "Sessions Overview"
+            component = {SessionsOverview}
+            options={{          
+              headerShown: false,
+            }}
+          />
+           
+          <Stack.Screen
+            name = "Session Details"
+            component = {SessionDetails}
+            options={{ presentation: 'modal' }} 
+          /> 
+        </Stack.Navigator>
+    </>
+  );
+}

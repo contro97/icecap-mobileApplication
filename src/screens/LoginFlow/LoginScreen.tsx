@@ -132,26 +132,21 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    // backgroundColor: 'yellow',
   },
   imgContainer: {
     flex: 0.5,
-    // backgroundColor: 'red',
     justifyContent: "center",
   },
   loginFieldContainer: {
     flex: 2,
-    // backgroundColor: 'blue',
     justifyContent: "center",
   },
   createAccountContainer: {
     flex: 1,
-    // backgroundColor: 'green',
   },
   helpContainer: {
     flex: 1,
     alignSelf: "center",
-    // backgroundColor: 'purple',
     position: "absolute",
     bottom: 0,
   },

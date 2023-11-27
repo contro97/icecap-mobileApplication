@@ -15,7 +15,7 @@ function SessionItem(session: SessionType ) {
     });
   }
 
-  return (
+  return ( 
     <Pressable
       onPress={sessionPressHandler}
       style={({ pressed }) => pressed && styles.pressed}
