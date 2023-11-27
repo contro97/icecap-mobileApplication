@@ -130,7 +130,13 @@ function AuthenticatedStack() {
           tabBarIcon: ({ color, size }) => (
             <AntDesign name="setting" size={size} color={color} />
           ),
+          headerRight: () => (
+            <AntDesign name="setting" size={24} color="black"
+              onPress={AuthCtx.logout}
+            />
+          ),
         }}
+        
       />
       
     </BottomTabs.Navigator>
