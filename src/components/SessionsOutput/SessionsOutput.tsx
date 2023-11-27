@@ -5,6 +5,8 @@ import SessionsSummary from "./SessionsSummary";
 
 import { SessionType } from "src/types/SessionType";
 import { GlobalStyles } from "../../constants/Colors";
+import { LinearGradient } from "expo-linear-gradient";
+import DateRangeComponent from "../DateRange";
 
 function SessionsOutput({sessions, fallbackText} : {sessions: SessionType[], fallbackText: string}) {
   let content = <Text style={styles.noDataText}>{fallbackText}</Text>;
@@ -15,11 +17,13 @@ function SessionsOutput({sessions, fallbackText} : {sessions: SessionType[], fal
     }
 
   return (
+      
     <ScrollView>
-      <View style={styles.sessionsOutput}>
+      
+      <DateRangeComponent />      
       <SessionsSummary sessions={sessions} />
         {content}  
-      </View>    
+      
     </ScrollView>
   );
 }

@@ -11,10 +11,12 @@ import { AntDesign } from "@expo/vector-icons";
 import {  GlobalStyles } from "../../constants/Colors";
 
 import SessionData from "../../components/SessionsOutput/SessionData";
+import { LinearGradient } from "expo-linear-gradient";
 
 function SessionDetails({ route, navigation }: any) {
   return (
-    <ScrollView>       
+    <ScrollView> 
+      <LinearGradient colors={[GlobalStyles.colors.primary50, GlobalStyles.colors.primary200]} >  
       <View style={styles.statsItem}>
         <Text>{route.params?.session.activity} </Text>
         <Text>{route.params?.session.sessiontime}m</Text>
@@ -94,6 +96,7 @@ function SessionDetails({ route, navigation }: any) {
         dataLeft={route.params?.session.shotsunderhandleft}
         dataRight={route.params?.session.shotsunderhandright}
       />
+      </LinearGradient>     
     </ScrollView>
   );
 }

@@ -131,6 +131,7 @@ function AuthenticatedStack() {
           tabBarIcon: ({ color, size }) => (
             <AntDesign name="setting" size={size} color={color} />
           ),                    
+          headerShown: false,
         }}
         
       />
@@ -160,7 +161,7 @@ function SessionData() {
               presentation: 'modal',
               headerRight: () => (
                 <AntDesign name="close" size={24} color="black" onPress={navigationRef.goBack}/>
-              ),
+              ),              
              }} 
           /> 
         </Stack.Navigator>
