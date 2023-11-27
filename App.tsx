@@ -131,8 +131,9 @@ function AuthenticatedStack() {
             <AntDesign name="setting" size={size} color={color} />
           ),
           headerRight: () => (
+            console.log(AuthCtx),
             <AntDesign name="setting" size={24} color="black"
-              onPress={AuthCtx.logout}
+              onPress={AuthCtx.logout}              
             />
           ),
         }}
