@@ -82,7 +82,7 @@ function AuthenticatedStack() {
   return (
     <BottomTabs.Navigator>
       <BottomTabs.Screen
-        name="Sessions Overview"
+        name="Sessions"
         component={SessionData}
         options={{
           title: "Session History",
