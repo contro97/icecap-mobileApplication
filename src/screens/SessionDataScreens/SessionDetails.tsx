@@ -68,7 +68,7 @@ function SessionDetails({ route, navigation }: any) {
       </View>
 
       <SessionData
-        statName="Total"
+        statName="Left & Right"
         dataLeft={route.params?.session.shotsleft}
         dataRight={route.params?.session.shotsright}
       />
