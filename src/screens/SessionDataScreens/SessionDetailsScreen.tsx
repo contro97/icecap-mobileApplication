@@ -92,7 +92,7 @@ function SessionDetails({ route, navigation }: any) {
         dataRight={route.params?.session.shotsunderhandright}
       />
       <View style={styles.linebreak} />
-      </LinearGradient>     
+      </LinearGradient>   
     </ScrollView>
   );
 }

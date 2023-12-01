@@ -20,6 +20,9 @@ function SessionsOutput({sessions, fallbackText} : {sessions: SessionType[], fal
   return (
       
     <ScrollView>
+      <View style={styles.titleContainer}>
+      <Text style={styles.titleText}>Shot History</Text>
+      </View>
       
       
       <SessionsSummary sessions={sessions} />
@@ -44,5 +47,19 @@ const styles = StyleSheet.create({
   noDataText: {
     textAlign: "center",
     fontSize: 18,
+  },
+  titleContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 8,
+    backgroundColor: GlobalStyles.colors.primary500,
+    borderRadius:50,
+    marginHorizontal: 100,
+    marginTop: 54,
+  },
+  titleText:{
+    fontSize: 24,
+    fontWeight: "bold",
+    color: GlobalStyles.colors.primary50,
   }
 })

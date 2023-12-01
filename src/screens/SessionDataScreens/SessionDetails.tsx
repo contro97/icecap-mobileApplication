@@ -17,14 +17,6 @@ function SessionDetails({ route, navigation }: any) {
   return (
     <ScrollView> 
       <LinearGradient colors={[GlobalStyles.colors.primary50, GlobalStyles.colors.primary200]} >  
-      <View style={styles.statsItem}>
-        <Text>{route.params?.session.activity} </Text>
-        <Text>{route.params?.session.sessiontime}m</Text>
-      </View>
-      <View style={styles.statsItem}>
-        <Text>Top Speed</Text>
-        <Text>{route.params?.session.topspeed} mph</Text>
-      </View>
       <View>
         <VictoryChart polar theme={VictoryTheme.material}>
           {[

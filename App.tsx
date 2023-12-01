@@ -29,10 +29,10 @@ import { GlobalStyles } from "./src/constants/Colors";
 import LoginForm from "src/components/LoginForm";
 import LoginScreen from "./src/screens/LoginFlow/LoginScreen";
 import AuthContextProvider, { AuthContext } from "./src/state/auth-context";
+import { color } from "react-native-reanimated";
 
 const Stack = createNativeStackNavigator(); //Navigator object, which contains all the screens in our app
 const BottomTabs = createBottomTabNavigator();
-
 
 function AuthStack() {
   return (
@@ -61,7 +61,7 @@ function Navigation() {
   return (
     <NavigationContainer>
       {!authCtx.isAuthenticated && <AuthStack />}
-      {authCtx.isAuthenticated && <AuthenticatedStack  /> }
+      {authCtx.isAuthenticated && <AuthenticatedStack />}
     </NavigationContainer>
   );
 }
@@ -130,12 +130,10 @@ function AuthenticatedStack() {
         options={{
           tabBarIcon: ({ color, size }) => (
             <AntDesign name="setting" size={size} color={color} />
-          ),                    
+          ),
           headerShown: false,
         }}
-        
       />
-      
     </BottomTabs.Navigator>
   );
 }
@@ -144,27 +142,35 @@ function SessionData() {
   const navigationRef = useNavigation();
   return (
     <>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Sessions Overview"
+          component={SessionsOverview}
+          options={{
+            headerShown: false,
+          }}
+        />
 
-        <Stack.Navigator>
-          <Stack.Screen
-            name = "Sessions Overview"
-            component = {SessionsOverview}
-            options={{          
-              headerShown: false,
-            }}
-          />
-           
-          <Stack.Screen
-            name = "Session Details"
-            component = {SessionDetails}
-            options={{ 
-              presentation: 'modal',
-              headerRight: () => (
-                <AntDesign name="close" size={24} color="black" onPress={navigationRef.goBack}/>
-              ),              
-             }} 
-          /> 
-        </Stack.Navigator>
+        <Stack.Screen
+          name="Session Details"
+          component={SessionDetails}
+          options={{
+            presentation: "modal",
+            headerRight: () => (
+              <AntDesign
+                name="close"
+                size={24}
+                color="white"
+                onPress={navigationRef.goBack}
+              />
+            ),
+            headerStyle: {
+              backgroundColor: GlobalStyles.colors.primary500,
+            },
+            headerTintColor: "white",
+          }}
+        />
+      </Stack.Navigator>
     </>
   );
 }

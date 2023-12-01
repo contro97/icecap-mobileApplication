@@ -53,9 +53,6 @@ function SessionsOverview(sessionData: SessionType[]) {
     
     
     <LinearGradient colors={[GlobalStyles.colors.primary50, GlobalStyles.colors.primary200]} style={styles.container}>  
-    <View style={styles.titleContainer}>
-      <Text style={styles.titleText}>Shot Data</Text>
-    </View>
       <SessionsOutput
         sessions={filteredSessions}
         fallbackText="No sessions yet."
@@ -72,18 +69,4 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  titleContainer: {
-    alignItems: "center",
-    justifyContent: "center",
-    padding: 8,
-    backgroundColor: GlobalStyles.colors.primary500,
-    borderRadius:50,
-    marginHorizontal: 100,
-    marginTop: 54,
-  },
-  titleText:{
-    fontSize: 24,
-    fontWeight: "bold",
-    color: GlobalStyles.colors.primary50,
-  }
 });
