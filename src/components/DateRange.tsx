@@ -17,6 +17,7 @@ const DateRangeComponent = () => {
 
   return (
     <>
+    
     <View style={styles.container}>
       <TouchableOpacity onPress={handlePrevClick} style={styles.button}>
       <MaterialCommunityIcons name="arrow-left-circle" size={24} color="black" />
@@ -46,7 +47,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 24,
-    marginTop: 36,
+    marginTop: 24,
     borderTopWidth: 1,
     borderColor: GlobalStyles.colors.primary800,
     paddingTop: 16,

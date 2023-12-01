@@ -18,7 +18,7 @@ function SessionsOutput({sessions, fallbackText} : {sessions: SessionType[], fal
     }
 
   return (
-      <SafeAreaView>
+      
     <ScrollView>
       
       
@@ -27,7 +27,7 @@ function SessionsOutput({sessions, fallbackText} : {sessions: SessionType[], fal
         {content}  
       
     </ScrollView>
-    </SafeAreaView>
+    
   );
 }
 

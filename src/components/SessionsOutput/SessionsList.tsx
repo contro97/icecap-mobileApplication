@@ -16,9 +16,19 @@ function SessionsList({ sessions }: { sessions: SessionType[] }) {
       data={sessions}
       renderItem={renderSessionItem}
       keyExtractor={(item) => item.sessionid}
+      style={styles.sessionsList}
     />
   );
 }
 
 export default SessionsList;
+
+const styles = StyleSheet.create({
+  sessionsList: {
+    flex: 1,
+    paddingHorizontal: 24,
+    
+    paddingBottom: 0,
+  },
+});
 
