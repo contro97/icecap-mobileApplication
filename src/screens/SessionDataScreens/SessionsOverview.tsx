@@ -11,50 +11,18 @@ import { GlobalStyles } from "../../../src/constants/Colors";
 import DateRangeComponent from "../../components/DateRange";
 import { LinearGradient } from "expo-linear-gradient";
 import { all } from "axios";
+import { useState } from "react";
 
 
 function SessionsOverview(sessionData: SessionType[]) {
-  const filteredSessions = DUMMY_SESSIONS.filter((session) => {
-    const sessionDateObject = moment(
-      session.endtime,
-      "MM/DD/YYYY hh:mm:ss A"
-    ).toDate();
 
-    // Get the current date/time
-    const currentDate = new Date();
-
-    // Calculate the date 7 days ago
-    const last7DaysDate = new Date();
-    last7DaysDate.setDate(currentDate.getDate() - 7);
-
-    // Calculate the date 30 days ago
-    const last30DaysDate = new Date();
-    last30DaysDate.setDate(currentDate.getDate() - 30);
-
-    // Calculate the date 30 days ago
-    const last90DaysDate = new Date();
-    last30DaysDate.setDate(currentDate.getDate() - 90);
-
-    // Filter based on different time ranges
-    const isWithinLast7Days =
-      sessionDateObject >= last7DaysDate && sessionDateObject <= currentDate;
-    const isWithinLast30Days =
-      sessionDateObject >= last30DaysDate && sessionDateObject <= currentDate;
-
-    const isWithinLast90Days =
-      sessionDateObject >= last90DaysDate && sessionDateObject <= currentDate;
-
-    const allTime = sessionDateObject <= currentDate;
-
-    return allTime;
-  });
 
   return (
     
     
     <LinearGradient colors={[GlobalStyles.colors.primary50, GlobalStyles.colors.primary200]} style={styles.container}>  
       <SessionsOutput
-        sessions={filteredSessions}
+        sessions={DUMMY_SESSIONS}
         fallbackText="No sessions yet."
       />
       </LinearGradient>
