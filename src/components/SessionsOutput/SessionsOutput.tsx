@@ -11,9 +11,6 @@ import SessionsSummary from "./SessionsSummary";
 
 import { SessionType } from "src/types/SessionType";
 import { GlobalStyles } from "../../constants/Colors";
-import { LinearGradient } from "expo-linear-gradient";
-// import DateRangeComponent from "../DateRange";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { useState } from "react";
 import moment from "moment";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -101,7 +98,7 @@ function SessionsOutput({
             <MaterialCommunityIcons
               name="arrow-left-circle"
               size={24}
-              color="black"
+              color={GlobalStyles.colors.primary700}
             />
           </TouchableOpacity>
 
@@ -111,7 +108,7 @@ function SessionsOutput({
             <MaterialCommunityIcons
               name="arrow-right-circle"
               size={24}
-              color="black"
+              color={GlobalStyles.colors.primary700}
             />
           </TouchableOpacity>
         </View>
@@ -164,10 +161,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     paddingHorizontal: 24,
-    marginTop: 24,
+    marginTop: 8,
     borderTopWidth: 1,
     borderColor: GlobalStyles.colors.primary800,
-    paddingTop: 16,
+    paddingTop: 8,
     marginHorizontal: 24,
   },
   button: {
@@ -186,9 +183,11 @@ const styles = StyleSheet.create({
     marginHorizontal: 4,
   },
   activeDot: {
-    backgroundColor: "blue", // You can customize the color for the active dot
+    backgroundColor: GlobalStyles.colors.primary800, // You can customize the color for the active dot
   },
   dateText: {
     fontSize: 18,
+    fontWeight: "bold",
+    color: GlobalStyles.colors.primary800,
   },
 });

@@ -10,7 +10,7 @@ function SessionItem(session: SessionType ) {
   const navigation : any = useNavigation(); // change type to any to avoid error
 
   function sessionPressHandler() {
-    navigation.navigate('Session Details', { 
+    navigation.navigate('Shot Profile', { 
       session: session,      
     });
   }

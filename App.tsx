@@ -159,7 +159,7 @@ function SessionData() {
         />
 
         <Stack.Screen
-          name="Session Details"
+          name="Shot Profile"
           component={SessionDetails}
           options={{
             presentation: "modal",
