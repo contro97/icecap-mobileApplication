@@ -7,6 +7,7 @@ import { SessionType } from "src/types/SessionType";
 import { GlobalStyles } from "../../constants/Colors";
 import { LinearGradient } from "expo-linear-gradient";
 import DateRangeComponent from "../DateRange";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 function SessionsOutput({sessions, fallbackText} : {sessions: SessionType[], fallbackText: string}) {
   let content = <Text style={styles.noDataText}>{fallbackText}</Text>;
@@ -17,14 +18,16 @@ function SessionsOutput({sessions, fallbackText} : {sessions: SessionType[], fal
     }
 
   return (
-      
+      <SafeAreaView>
     <ScrollView>
       
-      <DateRangeComponent />      
+      
       <SessionsSummary sessions={sessions} />
+      <DateRangeComponent />      
         {content}  
       
     </ScrollView>
+    </SafeAreaView>
   );
 }
 

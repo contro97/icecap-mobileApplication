@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { GlobalStyles } from '../../src/constants/Colors';
 
 const DateRangeComponent = () => {
   const dateRanges = ["Last 7 Days", "Last 30 Days", "Last 90 Days", "All Time"];
@@ -46,6 +47,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 24,
     marginTop: 36,
+    borderTopWidth: 1,
+    borderColor: GlobalStyles.colors.primary800,
+    paddingTop: 16,
+    marginHorizontal: 24,
   },
   button: {
     padding: 8,
