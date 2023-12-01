@@ -101,7 +101,7 @@ function SessionsOutput({
             <MaterialCommunityIcons
               name="arrow-left-circle"
               size={24}
-              color="black"
+              color={GlobalStyles.colors.primary800}
             />
           </TouchableOpacity>
 
@@ -111,7 +111,7 @@ function SessionsOutput({
             <MaterialCommunityIcons
               name="arrow-right-circle"
               size={24}
-              color="black"
+              color={GlobalStyles.colors.primary800}
             />
           </TouchableOpacity>
         </View>
@@ -164,9 +164,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     paddingHorizontal: 24,
-    marginTop: 24,
-    borderTopWidth: 1,
-    borderColor: GlobalStyles.colors.primary800,
+    marginTop: 8,
+    borderTopWidth: 3,
+    borderColor: 'grey',
     paddingTop: 16,
     marginHorizontal: 24,
   },
@@ -186,7 +186,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 4,
   },
   activeDot: {
-    backgroundColor: "blue", // You can customize the color for the active dot
+    backgroundColor: GlobalStyles.colors.primary600, // You can customize the color for the active dot
   },
   dateText: {
     fontSize: 18,
