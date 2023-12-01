@@ -81,7 +81,14 @@ function AuthenticatedStack() {
   const AuthCtx = useContext(AuthContext);
 
   return (
-    <BottomTabs.Navigator>
+    <BottomTabs.Navigator
+    screenOptions={({ route }) => ({
+        headerStyle: { backgroundColor: GlobalStyles.colors.primary500 },
+        headerTintColor: 'white',
+        tabBarStyle: { backgroundColor: GlobalStyles.colors.primary500 },
+        tabBarActiveTintColor: 'white',
+    })}
+    >
       <BottomTabs.Screen
         name="Sessions"
         component={SessionData}
