@@ -211,13 +211,14 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // Get a list of cities from your database
-async function getCities(db: any) {
-  const citiesCol = collection(db, '04CGmXs87USNCsc7JvOVSJORiCr2');
-  const citySnapshot = await getDocs(citiesCol);
+async function getUserData(db: any) {
+  const userData = collection(db, 'ieBP9fT3GlTIKOcZxAorGGLE7hl1', );
+  const citySnapshot = await getDocs(userData);
   const cityList = citySnapshot.docs.map(doc => doc.data());
   console.log(cityList)
+  console.log('------------------')
   return cityList;
 }
 
-getCities(db);
+getUserData(db);
 

@@ -15,7 +15,7 @@ import { LinearGradient } from "expo-linear-gradient";
 
 function SessionDetails({ route, navigation }: any) {
   return (
-    <ScrollView> 
+    <ScrollView style={styles.container}> 
       <LinearGradient colors={[GlobalStyles.colors.primary50, GlobalStyles.colors.primary200]} >  
       <View>
         <VictoryChart polar theme={VictoryTheme.material}>
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   linebreak: {
-    borderBottomColor: "black",
+    borderBottomColor: "white",
     borderBottomWidth: 1,
   },
   exitContainer: {
@@ -113,5 +113,8 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end', // Align items to the right
     alignItems: 'center', // Align items vertically (if needed)
     backgroundColor: "#f5fcff",
+  },
+  container: {
+    backgroundColor: GlobalStyles.colors.primary500,
   }
 });
