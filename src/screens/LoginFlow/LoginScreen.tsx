@@ -65,60 +65,16 @@ function LoginScreen() {
       <SafeAreaView style={styles.rootScreen}>
         <View style={styles.imgContainer}>
           <Image
-            source={require("../../../assets/IcecapLogoWhite.png")}
+            source={require("../../../assets/ECDCrab.png")}
             style={styles.logo}
           ></Image>
+          <Image
+            source={require("../../../assets/ECDText.png")}
+            style={styles.logo}
+          ></Image>
+          
         </View>
         <AuthContent isLogin={true} onAuthenticate={loginHandler} />
-
-        {/* <View style={styles.loginFieldContainer}> 
-        <View style={styles.containerInputBox}>
-          <Text style={styles.text}>EMAIL</Text>
-          <View style={styles.textInputView}>
-            <TextInput style={styles.textInputText} />
-            
-          </View>
-        </View> 
-
-        <View style={styles.containerInputBox}>
-          <Text style={styles.text}>PASSWORD</Text>
-          <View style={styles.textInputView}>
-            <TextInput
-              style={styles.textInputText}
-              secureTextEntry={!showPassword}
-            />
-            <MaterialCommunityIcons
-              name={showPassword ? "eye-off" : "eye"}
-              size={24}
-              color="#aaa"
-              // style={styles.icon}
-              onPress={toggleShowPassword}
-            />
-          </View>
-        </View>
-
-        <Text style={styles.buttonText}>FORGOT YOUR PASSWORD?</Text>
-        <PrimaryButton
-        onPress={() => navigation.navigate('Sessions Overview')}
-        >
-          <Text>LOG IN</Text>
-        </PrimaryButton>
-      </View>
-
-      <View style={styles.createAccountContainer}>
-        <Text style={styles.infoText}>Don't have an account? Sign up!</Text>
-        <PrimaryButton
-        onPress={() => console.log('Create Account? btn pressed')}
-        >
-          <Text>CREATE ACCOUNT</Text>
-        </PrimaryButton>
-      </View>
-
-      <View style={styles.helpContainer}>
-        <Text style={styles.buttonText}>SETUP INSTRUCTIONS</Text>
-        <Text style={styles.buttonText}>CAN'T LOGIN? EMAIL SUPPORT</Text>
-      </View>
-    </View>  */}
       </SafeAreaView>
     </LinearGradient>
   );
@@ -130,12 +86,13 @@ const styles = StyleSheet.create({
   rootScreen: {
     flex: 1,
   },
-  container: {
-    flex: 1,
-  },
-  imgContainer: {
-    flex: 0.5,
+  imgContainer: { 
+    flex: 0.6,
     justifyContent: "center",
+    paddingTop: 50
+  },
+  logo: {
+    alignSelf: "center",
   },
   loginFieldContainer: {
     flex: 2,
@@ -154,11 +111,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     margin: 10,
     marginHorizontal: 30,
-  },
-  logo: {
-    width: 60,
-    height: 130,
-    alignSelf: "center",
   },
 
   buttonText: {
@@ -182,15 +134,6 @@ const styles = StyleSheet.create({
     fontSize: 10,
     fontWeight: "bold",
     marginBottom: 5,
-  },
-  textInputView: {
-    justifyContent: "space-between",
-    backgroundColor: GlobalStyles.colors.primary500,
-    // backgroundColor: 'red',
-    padding: "5%",
-    borderBottomColor: "white",
-    borderBottomWidth: 1,
-    flexDirection: "row",
   },
   textInputText: {
     color: "white",
