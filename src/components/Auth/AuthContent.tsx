@@ -64,7 +64,7 @@ function AuthContent({
         />
         <View style={styles.buttons}>
             <Button onPress={switchAuthModeHandler}>
-                {isLogin ? "Switch to Signup" : "Switch to Login"}
+                {isLogin ? "Create Account" : "Switch to Login"}
             </Button>    
         </View>
 

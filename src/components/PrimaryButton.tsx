@@ -36,12 +36,13 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 16,
     elevation: 2,
-    opacity: 0.3
+    
   },
   buttonText: {
-    color: "white",
-    textAlign: "center",
-    padding: 4
+    textAlign: 'center',
+        color: 'white',
+        fontSize: 16,
+        fontWeight: 'bold'
   },
   pressed: {
     opacity: 0.75,

@@ -93,6 +93,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     alignSelf: "center",
+    
   },
   loginFieldContainer: {
     flex: 2,
